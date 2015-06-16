@@ -1,0 +1,3 @@
+
+C:\Users\jfjung\Desktop\GitHub\Framework\Framework\classes\Form\Form.php:15	Avoid unused private fields such as '$widget'.
+C:\Users\jfjung\Desktop\GitHub\Framework\Framework\classes\Widget\WidgetChoice.php	-	Unexpected token: =, line: 15, col: 85, file: C:\Users\jfjung\Desktop\GitHub\Framework\Framework\classes\Widget\WidgetChoice.php.

@@ -17,13 +17,25 @@ spl_autoload_register(function ($class) {
         require $file;
     }
 });
+
+$form = new Itechsup\FormFwk\Form\Form();
+$form->addWidget(new Itechsup\FormFwk\Widget\WidgetImpl\WidgetText('txt_name', 'gruesome label for text'));
+$form->addWidget(new Itechsup\FormFwk\Widget\WidgetImpl\WidgetMail('mail_name', 'gruesome label for mail'));
+
+if (!empty($_POST)) {
+    $form->bind($_POST);
+}
 ?>
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Formulaire</title>
-        <link href="css/style.css" rel="stylesheet" type="text/css">
+        <title>Incroyable! jamais vu !</title>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <link href="http://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet" type="text/css" />
     </head>
     <body>
+        <div id="wrapper">
+        <?php echo $form->render(); ?>
+        </div>
 	</body>
 </html>
