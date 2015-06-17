@@ -9,6 +9,7 @@ use Itechsup\FormFwk\Widget\Widget;
  */
 class Form
 {
+
     /**
      * Widget holder
      */
@@ -73,4 +74,5 @@ class Form
     {
         return '<input type="submit" value="Soumet moi !" /></form>';
     }
+
 }
