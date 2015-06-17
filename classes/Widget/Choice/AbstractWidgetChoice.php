@@ -14,7 +14,9 @@ abstract class AbstractWidgetChoice extends Widget
 {
 
     protected $options = [];
+
     /**
+     * alas, you won't instanciate this class, because it is abstract. But its __construct is quite nice.
      * 
      * @param string $name
      * @param string $label
@@ -27,7 +29,9 @@ abstract class AbstractWidgetChoice extends Widget
         $this->options = $options;
     }
     /**
-     * isOptionSelected return a boolean if the the bind $this->data is in the array $option[$key]
+     * For a given key we check if the value was binded to this instance. 
+     * The key (returned through http request), not the value displayed to the end user.
+     * 
      * @param string $key
      * @return boolean
      */
