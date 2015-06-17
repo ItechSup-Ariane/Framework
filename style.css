@@ -47,6 +47,7 @@ input[type="checkbox"],
 input[type="radio"]{
     width:10px;
     margin-left: 0;
+    display: block;
 }
 input[type="submit"],
 input[type="reset"]{
