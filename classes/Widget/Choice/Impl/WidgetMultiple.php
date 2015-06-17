@@ -1,3 +1,4 @@
+
 <?php
 
 namespace Itechsup\FormFwk\Widget\Choice\Impl;
@@ -12,6 +13,10 @@ class WidgetMultiple extends WidgetChoice
 
     protected $type = 'List';
 
+    /**
+     * Renderer HTML code for WidgetMultiple (HTML select multiple)
+     * @return string
+     */
     public function render()
     {
         if ($this->data !== null) {
@@ -32,24 +37,33 @@ class WidgetMultiple extends WidgetChoice
         return $output;
     }
 
+    /**
+     * Renderer HTML Code for options and groups of select
+     * @return string
+     */
     public function renderOptions()
     {
         foreach ($this->option as $key => $value) {
             if (is_array($value)) {
-                $output .= '<optgroup label="' . $key . '">';
+                $output .= '<optgroup label="'.$key.'">';
                 foreach ($value as $v) {
-                    $output .= renderOption($v, $this->data);
+                    $output .= renderOption($v);
                 }
                 $output .= '</optgroup>';
             }
-            $output .= renderOption($key, $this->data);
+            $output .= renderOption($key);
         }
         return $output;
     }
 
-    public function renderOption($option, $data)
+    /**
+     * Renderer HTML Code for option of select
+     * @param string $option
+     * @return string
+     */
+    public function renderOption($option)
     {
-        if (in_array($option, $data)) {
+        if (in_array($option, $this->data)) {
             return '<option selected>' . $option . '</option>';
         }
         return '<option>' . $option . '</option>';
