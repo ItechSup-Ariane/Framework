@@ -9,5 +9,7 @@ use Itechsup\FormFwk\Widget\WidgetInput;
  */
 class WidgetMail extends WidgetInput
 {
+
     protected $type = 'email';
+
 }
