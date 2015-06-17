@@ -1,4 +1,3 @@
-
 <?php
 
 namespace Itechsup\FormFwk\Widget\Choice;
@@ -24,7 +23,7 @@ abstract class AbstractWidgetChoice extends Widget
 
     protected function isOptionSelected($key)
     {
-        return $this->data !== null && array_search($key, $this->data) ;       
+        return $this->data !== null && false !== array_search($key, $this->data) ;
     }
 
 }
