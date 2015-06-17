@@ -1,6 +1,6 @@
 <?php
 
-namespace ItechSup\FormFwk\Widget\Choice;
+namespace Itechsup\FormFwk\Widget\Choice;
 
 use Itechsup\FormFwk\Widget\Widget;
 
@@ -19,6 +19,14 @@ abstract class AbstractWidgetChoice extends Widget
     {
         parent::__construct($name, $label, $htmlAttributes);
         $this->options = $options;
+    }
+
+    protected function isOptionSelected($key)
+    {
+        if($this->data!=null){
+            return array_search($key, $this->data);
+        }
+        return false;
     }
 
 }
