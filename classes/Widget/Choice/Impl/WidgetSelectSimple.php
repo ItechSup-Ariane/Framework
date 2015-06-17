@@ -25,12 +25,10 @@ class WidgetSelectSimple extends AbstractWidgetChoice
         $retour = "<select name='";
         $retour .= $this->name;
         $retour .= "'>";
-        
         foreach ($this->options as $option) {
-            $retour .= "<option value='" . $option . "'>";
-            $retour .= $this->name . "</options>";
+            $retour .= "<option value='".$option."'>";
+            $retour .= $this->name."</options>";
         }
-        
         $retour .= "</select>";
         
         return $retour;
