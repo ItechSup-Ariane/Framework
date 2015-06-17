@@ -23,9 +23,28 @@ $form->addWidget(new Itechsup\FormFwk\Widget\WidgetImpl\WidgetText('txt_name', '
 $form->addWidget(new Itechsup\FormFwk\Widget\WidgetImpl\WidgetMail('mail_name', 'gruesome label for mail'));
 $form->addWidget(new Itechsup\FormFwk\Widget\Choice\Impl\WidgetMultiple('list_multiple', 'My big list', array("name"=>"maliste"),array("1"=>"1","2"=>"2","3"=>"3","4"=>"4","5"=>"5","6"=>"6")));
 
+
+$option[] = "1";
+$option[] = "2";
+$option[] = "3";
+
+$html[] = "";
+
+$form->addWidget(new Itechsup\FormFwk\Widget\Choice\Impl\WidgetSelectSimple('liste', 'gruesome label for mail',$html,$option));
 if (!empty($_POST)) {
     $form->bind($_POST);
-}
+$form->addWidget(new Itechsup\FormFwk\Widget\Choice\Impl\SimpleExpended('radio_name', 'gruesome label for radio',
+        [], ['toto', 'titi', 'tata']));
+
+$options = array('a' => 'Ma lettre A', 'b' => 'Ma lettre B', 'c' => 'Ma lettre C');
+$htmlAttributes = array();
+$form->addWidget(new Itechsup\FormFwk\Widget\Choice\Impl\WidgetCheckbox('checkbox_name', 'label for CB', $htmlAttributes, $options));
+
+if (!empty($_POST)) {
+    $form->bind($_POST);
+    echo '<pre>';
+    print_r($_POST);
+    echo '</pre>';
 ?>
 <html>
     <head>
@@ -38,5 +57,5 @@ if (!empty($_POST)) {
         <div id="wrapper">
             <?php echo $form->render(); ?>
         </div>
-    </body>
+	</body>
 </html>
