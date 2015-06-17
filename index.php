@@ -21,6 +21,7 @@ spl_autoload_register(function ($class) {
 $form = new Itechsup\FormFwk\Form\Form();
 $form->addWidget(new Itechsup\FormFwk\Widget\WidgetImpl\WidgetText('txt_name', 'gruesome label for text'));
 $form->addWidget(new Itechsup\FormFwk\Widget\WidgetImpl\WidgetMail('mail_name', 'gruesome label for mail'));
+$form->addWidget(new Itechsup\FormFwk\Widget\Choice\Impl\WidgetMultiple('list_multiple', 'My big list', array("name"=>"maliste"),array(1,2,3,4,5,6)));
 
 if (!empty($_POST)) {
     $form->bind($_POST);

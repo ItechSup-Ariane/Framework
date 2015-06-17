@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 /nbproject/
-=======
-<<<<<<< HEAD
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
@@ -49,59 +46,6 @@ Temporary Items
 
 # Ignoring netbeans configuration file
 nbproject/
-=======
-# Windows image file caches
-Thumbs.db
-ehthumbs.db
-
-# Folder config file
-Desktop.ini
-
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
-
-# Windows Installer files
-*.cab
-*.msi
-*.msm
-*.msp
-
-# Windows shortcuts
-*.lnk
-
-# =========================
-# Operating System Files
-# =========================
-
-# OSX
-# =========================
-
-.DS_Store
-.AppleDouble
-.LSOverride
-
-# Thumbnails
-._*
-
-# Files that might appear on external disk
-.Spotlight-V100
-.Trashes
-
-# Directories potentially created on remote AFP share
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
-
-# Ignoring netbeans configuration file
-nbproject/
->>>>>>> origin/ALC
 doc/
-=======
-/nbproject/
->>>>>>> origin/master
-<<<<<<< HEAD
->>>>>>> origin/ALC
-=======
->>>>>>> origin/ALC
+
+.gitignore
