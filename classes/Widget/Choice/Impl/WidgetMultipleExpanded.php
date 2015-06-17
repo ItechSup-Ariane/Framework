@@ -23,7 +23,7 @@ class WidgetMultipleExpanded extends AbstractWidgetChoice
                 $arrayAttributes['checked'] = "";
             }
 			
-            $widgetCheckbox = new WidgetCheckboxSelect($this->name.'['.$i.']', $labelCheckbox, $arrayAttributes);
+            $widgetCheckbox = new WidgetCheckbox($this->name.'['.$i.']', $labelCheckbox, $arrayAttributes);
 			
             $output .= str_replace('for', 'class = "checkbox" for',$widgetCheckbox->render());
 			
