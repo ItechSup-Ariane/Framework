@@ -21,7 +21,7 @@ spl_autoload_register(function ($class) {
 $form = new Itechsup\FormFwk\Form\Form();
 $form->addWidget(new Itechsup\FormFwk\Widget\WidgetImpl\WidgetText('txt_name', 'gruesome label for text'));
 $form->addWidget(new Itechsup\FormFwk\Widget\WidgetImpl\WidgetMail('mail_name', 'gruesome label for mail'));
-$form->addWidget(new Itechsup\FormFwk\Widget\Choice\Impl\WidgetMultiple('list_multiple', 'My big list', array("name"=>"maliste"),array("1"=>"1","2"=>"2","3"=>"3","4"=>"4","5"=>"5","6"=>"6")));
+$form->addWidget(new Itechsup\FormFwk\Widget\Choice\Impl\WidgetMultiple('list_multiple', 'My big list', array("name"=>"maliste"),array("Group1"=>array("1"=>"1","2"=>"2","3"=>"3","4"=>"4"),"Group2"=>array("1"=>"1","2"=>"2","3"=>"3","4"=>"4"))));
 
 
 $option[] = "1"; // $option = ["1", "2", "3"] <-- suggestion de Corentin que je trouve fort à propos
@@ -31,11 +31,11 @@ $option[] = "3";
 $html[] = "";
 
 $form->addWidget(new Itechsup\FormFwk\Widget\Choice\Impl\WidgetSelectSimple('liste', 'gruesome label for mail',$html,$option));
-$form->addWidget(new Itechsup\FormFwk\Widget\Choice\Impl\SimpleExpended('radio_name', 'gruesome label for radio', [], ['toto', 'titi', 'tata']));
+$form->addWidget(new Itechsup\FormFwk\Widget\Choice\Impl\WidgetSimpleExpanded('radio_name', 'gruesome label for radio', [], ['toto', 'titi', 'tata']));
 
 $options = array('a' => 'Ma lettre A', 'b' => 'Ma lettre B', 'c' => 'Ma lettre C');
 $htmlAttributes = array();
-$form->addWidget(new Itechsup\FormFwk\Widget\Choice\Impl\WidgetCheckbox('checkbox_name', 'label for CB', $htmlAttributes, $options));
+$form->addWidget(new Itechsup\FormFwk\Widget\WidgetImpl\WidgetCheckbox('checkbox_name', 'label for CB', $htmlAttributes, $options));
 
 if (!empty($_POST)) {
     $form->bind($_POST);
