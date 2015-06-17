@@ -2,7 +2,7 @@
 
 namespace Itechsup\FormFwk\Widget\Choice\Impl;
 
-use Itechsup\FormFwk\Widget\WidgetChoice;
+use Itechsup\FormFwk\Widget\Choice\Impl\WidgetCheckboxSelect;
 
 /*
 <input type="checkbox" name="choix1" value="1" /> label 1
@@ -14,44 +14,25 @@ use Itechsup\FormFwk\Widget\WidgetChoice;
 /**
  * Nice OO interface for our Form text Widgets.
  */
-class WidgetCheckbox extends WidgetChoice
+class WidgetCheckbox extends WidgetCheckboxSelect
 {
     protected $type = 'checkbox';
     
     /**
-     * Renderer for a checkbox widget
+     * Renderer for a list of checkbox widget
      */
     public function render()
     {               
         $output = $this->renderlabel();
         
-        $cbKey = 0;
-        $cbID = $this->getId();
-        // Loop for each options
-        foreach($this->options as $cbValue => $cbLabel) {            
-            $output .= $this->renderCB($cbKey, $cbID, $cbValue, $cbLabel);
-            $cbKey++;
-        }
-
-        return $output;
-    }
-    
-    /**
-     * Renderer for a checkbox widget
-     */
-    public function renderCB($cbKey, $cbID, $cbValue, $cbLabel)
-    {
-
-        // And to be sure to generate a proper html text input with the proper name...
-        $this->htmlAttributes['type'] = $this->type;
-        $this->htmlAttributes['name'] = $this->name.'_'.$cbKey;
-        $this->htmlAttributes['id'] = $cbID.'_'.$cbKey;        
+        $checkboxKey = 0;
+        $checkboxId = $this->getId();
         
-        $this->htmlAttributes['value'] = $cbValue;
-        $output .= '<input ';
-        $output .= $this->renderHtmlAttributes();
-        $output .= '/>';
-        $output .= $cbLabel;
+        // Loop for each options
+        foreach($this->options as $checkboxValue => $checkboxLabel) {
+            $output .= $this->renderCheckbox($checkboxKey, $checkboxId, $checkboxValue, $checkboxLabel);
+            $checkboxKey++;
+        }
 
         return $output;
     }
