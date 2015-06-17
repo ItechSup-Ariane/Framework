@@ -12,13 +12,16 @@ use Itechsup\FormFwk\Widget\Choice\AbstractWidgetChoice;
 use Itechsup\FormFwk\Widget\WidgetImpl\WidgetRadio;
 
 /**
- * Description of WidgetRadio
- *
- * @author Thomas
+ * Class WidgetSimpleExpended
+ * contains a group of radioboxes with a simple selection
  */
-class SimpleExpended extends AbstractWidgetChoice
+class WidgetSimpleExpended extends AbstractWidgetChoice
 {
     
+    /**
+     * render function
+     * @return string containing the html code to generate the group of radioboxes
+     */
     public function render()
     {
         $output = $this->renderLabel();

@@ -31,7 +31,7 @@ $option[] = "3";
 $html[] = "";
 
 $form->addWidget(new Itechsup\FormFwk\Widget\Choice\Impl\WidgetSelectSimple('liste', 'gruesome label for mail',$html,$option));
-$form->addWidget(new Itechsup\FormFwk\Widget\Choice\Impl\SimpleExpended('radio_name', 'gruesome label for radio', [], ['toto', 'titi', 'tata']));
+$form->addWidget(new Itechsup\FormFwk\Widget\Choice\Impl\WidgetSimpleExpended('radio_name', 'gruesome label for radio', [], ['toto', 'titi', 'tata']));
 
 $options = array('a' => 'Ma lettre A', 'b' => 'Ma lettre B', 'c' => 'Ma lettre C');
 $htmlAttributes = array();
