@@ -3,9 +3,9 @@
 namespace Itechsup\FormFwk\Widget\Choice\Impl;
 
 use Itechsup\FormFwk\Widget\Choice\AbstractWidgetChoice;
-use Itechsup\FormFwk\Widget\Choice\Impl\WidgetCheckboxSelect;
+use Itechsup\FormFwk\Widget\WidgetImpl\WidgetCheckbox;
 
-class WidgetCheckbox extends AbstractWidgetChoice
+class WidgetMultipleExpanded extends AbstractWidgetChoice
 {
     
     public function render()
@@ -23,7 +23,7 @@ class WidgetCheckbox extends AbstractWidgetChoice
                 $arrayAttributes['checked'] = "";
             }
 			
-            $widgetCheckbox = new WidgetCheckboxSelect($this->name.'['.$i.']', $labelCheckbox, $arrayAttributes);
+            $widgetCheckbox = new WidgetCheckbox($this->name.'['.$i.']', $labelCheckbox, $arrayAttributes);
 			
             $output .= str_replace('for', 'class = "checkbox" for',$widgetCheckbox->render());
 			

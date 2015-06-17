@@ -35,7 +35,7 @@ $form->addWidget(new Itechsup\FormFwk\Widget\Choice\Impl\SimpleExpended('radio_n
 
 $options = array('a' => 'Ma lettre A', 'b' => 'Ma lettre B', 'c' => 'Ma lettre C');
 $htmlAttributes = array();
-$form->addWidget(new Itechsup\FormFwk\Widget\Choice\Impl\WidgetCheckbox('checkbox_name', 'label for CB', $htmlAttributes, $options));
+$form->addWidget(new Itechsup\FormFwk\Widget\Choice\Impl\WidgetMultipleExpanded('checkbox_name', 'label for CB', $htmlAttributes, $options));
 
 if (!empty($_POST)) {
     $form->bind($_POST);
