@@ -1,60 +1,60 @@
 body{
-	background: url("http://onlyfreewallpaper.com/walls/kitsch-me-if-you-can-HD.jpg") no-repeat left top fixed;
-	font-family: "Indie Flower",cursive;
+    background: url("piou_piou_laser.jpg") no-repeat top fixed;
+    font-family: "Indie Flower",cursive;
 }
 #wrapper{
-	width: 600px;
-	margin: 0px auto;
+    width: 600px;
+    margin: 0px auto;
 }
 h1 {
-	text-align: center;
+    text-align: center;
 }
 .asterix{
-	color: magenta;
+    color: magenta;
 }
 form, #resultat {
-	padding: 10px;
-	width: auto;
-	background-color: rgba(75, 195, 215, 0.75);
-	border-radius: 20px;
-	border: 4px solid magenta;
-	color: white;
-	margin-bottom: 20px;
+    padding: 10px;
+    width: auto;
+    background-color: rgba(75, 195, 215, 0.75);
+    border-radius: 20px;
+    border: 4px solid magenta;
+    color: white;
+    margin-bottom: 20px;
 }
 .champs{
-	width: 100%;
-	margin-bottom: 20px;
+    width: 100%;
+    margin-bottom: 20px;
 }
 label {
-	vertical-align: top;
-	display: inline-block;
-	width: 40%;
+    vertical-align: top;
+    display: inline-block;
+    width: 40%;
 }
 .bloc_checkbox,
 .bloc_radio,
 input,
 textarea,
 select{
-	display: inline-block;
-	border: medium none;
-	border-radius: 5px;
-	padding: 5px;
-	width: 56%;
-	background-color: rgba(222, 53, 202, 0.25);
-	color: white;
+    display: inline-block;
+    border: medium none;
+    border-radius: 5px;
+    padding: 5px;
+    width: 56%;
+    background-color: rgba(222, 53, 202, 0.25);
+    color: white;
 }
 input[type="checkbox"],
 input[type="radio"]{
-	width:10px;
-	margin-left: 0;
+    width:10px;
+    margin-left: 0;
 }
 input[type="submit"],
 input[type="reset"]{
-	width:auto;
+    width:auto;
 }
 .error_message{
-	font-weight: bold;
-	color: magenta;
-	width: 100%;
-	float: left;
+    font-weight: bold;
+    color: magenta;
+    width: 100%;
+    float: left;
 }
