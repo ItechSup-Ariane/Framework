@@ -8,27 +8,27 @@
 
 namespace Itechsup\FormFwk\Widget\Choice;
 
-use Itechsup\FormFwk\Widget\WidgetChoice;
+use ItechSup\FormFwk\Widget\Choice\AbstractWidgetChoice;
 
 /**
  * Description of WidgetRadio
  *
  * @author Thomas
  */
-class WidgetRadio extends WidgetChoice
+class WidgetRadio extends AbstractWidgetChoice
 {
     private $type = "radio";
     
     public function render()
     {
-        $output = "";
         $output = $this->renderLabel();
         $this->htmlAttributes['type'] = $this->type;
         $this->htmlAttributes['name'] = $this->name;
-        $this->htmlAttributes['id'] = $this->getId();
-        $strAttributes = $this->renderHtmlAttributes();
-        foreach($this->options as $option){
-            $output .= '<input ' . $strAttributes . '/>'; 
+        foreach($this->options as $key => $value){
+            $this->htmlAttributes['id'] = $this->getId() . $key;
+            $this->htmlAttributes['value'] = $key;
+            $output .= '<input ' . $this->renderHtmlAttributes() . '/>'; 
+            $output .= '<label for="' . $this->getId() . '">' . $value . '</label>';
         }
         return $output;
     }
