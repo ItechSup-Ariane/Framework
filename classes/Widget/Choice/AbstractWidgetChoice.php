@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
 namespace Itechsup\FormFwk\Widget\Choice;
@@ -27,3 +28,4 @@ abstract class AbstractWidgetChoice extends Widget
     }
     
 }
+

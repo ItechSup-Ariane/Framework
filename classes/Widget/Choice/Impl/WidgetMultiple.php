@@ -2,7 +2,7 @@
 namespace Itechsup\FormFwk\Widget\Choice\Impl;
 use Itechsup\FormFwk\Widget\Choice\AbstractWidgetChoice;
 /**
- * Nice OO interface for our Form mail Widgets.
+ * widget multiple list
  */
 class WidgetMultiple extends AbstractWidgetChoice
 {
@@ -13,16 +13,17 @@ class WidgetMultiple extends AbstractWidgetChoice
      */
     public function render()
     {
-        if ($this->data !== null) {
-            $this->htmlAttributes['value'] = $this->data;
-        }
+
+
         // And to be sure to generate a proper html text input with the proper name...
-        $this->htmlAttributes['name'] = $this->name;
-        $this->htmlAttributes['id'] = $this->getId();
+        $this->htmlAttributes['name'] = $this->name."[]";
+        $this->htmlAttributes['id'] = $this->getId();        
+        $this->htmlAttributes['multiple'] = "multiple";
+
         $output = $this->renderlabel();
         $output .= '<select ';
-        $output .= $this->renderHtmlAttributes() . "Multiple";
-        $output .= '/>';
+        $output .= $this->renderHtmlAttributes();
+        $output .= '>';
         $output .= $this->renderOptions();
         $output .= '</select>';
         return $output;
@@ -53,9 +54,7 @@ class WidgetMultiple extends AbstractWidgetChoice
      */
     public function renderOption($key, $value)
     {
-        if ($this->isOptionSelected($key)) {
-            return '<option value="'.$key.'" selected>' . $value . '</option>';
-        }
-        return '<option value="'.$key.'">'.$value.'</option>';
+        $selected = $this->isOptionSelected($key)? ' selected' : '';
+        return '<option'.$selected.'>'.$value.'</option>';
     }
 }
