@@ -7,6 +7,7 @@ namespace Itechsup\FormFwk\Widget;
  */
 abstract class Widget
 {
+
     protected $label = null;
     protected $name = null;
     protected $data = null;
@@ -45,7 +46,7 @@ abstract class Widget
     {
         $output = '';
         foreach ($this->htmlAttributes as $key => $value) {
-            $output .= $key.'="'.$value.'" ';
+            $output .= $key . '="' . $value . '" ';
         }
 
         return $output;
@@ -60,7 +61,7 @@ abstract class Widget
     {
         $label = '';
         if ($this->label !== null) {
-            $label = '<label for="'.$this->getId().'">'.$this->label.'</label>';
+            $label = '<label for="' . $this->getId() . '">' . $this->label . '</label>';
         }
 
         return $label;
@@ -89,4 +90,5 @@ abstract class Widget
     {
         return $this->name;
     }
+
 }
