@@ -42,6 +42,7 @@ class WidgetMultiple extends AbstractWidgetChoice
      */
     public function renderOptions()
     {
+        $output='';
         foreach ($this->options as $key => $value) {
 //            if (is_array($value)) {
 //                $output .= '<optgroup label="'.$key.'">';
@@ -65,7 +66,7 @@ class WidgetMultiple extends AbstractWidgetChoice
         if ($this->isOptionSelected($key)) {
             return '<option value="'.$key.'" selected>' . $value . '</option>';
         }
-        return '<option>' . $option . '</option>';
+        return '<option value="'.$key.'">'.$value.'</option>';
     }
 
 }
