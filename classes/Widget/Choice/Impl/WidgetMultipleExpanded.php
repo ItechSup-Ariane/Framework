@@ -5,7 +5,7 @@ namespace Itechsup\FormFwk\Widget\Choice\Impl;
 use Itechsup\FormFwk\Widget\Choice\AbstractWidgetChoice;
 use Itechsup\FormFwk\Widget\Choice\Impl\WidgetCheckboxSelect;
 
-class WidgetMultipleExpendable extends AbstractWidgetChoice
+class WidgetMultipleExpanded extends AbstractWidgetChoice
 {
     
     public function render()

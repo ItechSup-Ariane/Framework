@@ -16,7 +16,7 @@ use Itechsup\FormFwk\Widget\WidgetImpl\WidgetRadio;
  *
  * @author Thomas
  */
-class WidgetSimpleExpendable extends AbstractWidgetChoice
+class WidgetSimpleExpanded extends AbstractWidgetChoice
 {
     
     public function render()

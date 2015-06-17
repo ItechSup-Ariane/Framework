@@ -31,11 +31,11 @@ $option[] = "3";
 $html[] = "";
 
 $form->addWidget(new Itechsup\FormFwk\Widget\Choice\Impl\WidgetSelectSimple('liste', 'gruesome label for mail',$html,$option));
-$form->addWidget(new Itechsup\FormFwk\Widget\Choice\Impl\SimpleExpended('radio_name', 'gruesome label for radio', [], ['toto', 'titi', 'tata']));
+$form->addWidget(new Itechsup\FormFwk\Widget\Choice\Impl\WidgetSimpleExpanded('radio_name', 'gruesome label for radio', [], ['toto', 'titi', 'tata']));
 
 $options = array('a' => 'Ma lettre A', 'b' => 'Ma lettre B', 'c' => 'Ma lettre C');
 $htmlAttributes = array();
-$form->addWidget(new Itechsup\FormFwk\Widget\Choice\Impl\WidgetCheckbox('checkbox_name', 'label for CB', $htmlAttributes, $options));
+$form->addWidget(new Itechsup\FormFwk\Widget\WidgetImpl\WidgetCheckbox('checkbox_name', 'label for CB', $htmlAttributes, $options));
 
 if (!empty($_POST)) {
     $form->bind($_POST);
