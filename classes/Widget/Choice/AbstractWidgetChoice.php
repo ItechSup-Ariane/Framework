@@ -25,4 +25,5 @@ abstract class AbstractWidgetChoice extends Widget
     {
         return $this->data !== null && false !== array_search($key, $this->data);
     }
+
 }

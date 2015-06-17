@@ -18,16 +18,16 @@ use Itechsup\FormFwk\Widget\WidgetImpl\WidgetRadio;
  */
 class WidgetSimpleExpended extends AbstractWidgetChoice
 {
-    
+
     public function render()
     {
         $output = $this->renderLabel();
-        foreach($this->options as $key => $value){
-            $arrayAttributes = ['id' => $this->getId().$key, 'value' => $key];
-            if($this->isOptionSelected($key)){
+        foreach ($this->options as $key => $value) {
+            $arrayAttributes = ['id' => $this->getId() . $key, 'value' => $key];
+            if ($this->isOptionSelected($key)) {
                 $arrayAttributes['checked'] = "";
             }
-            $widgetRadio = new WidgetRadio($this->name."[]", $value, $arrayAttributes);
+            $widgetRadio = new WidgetRadio($this->name . "[]", $value, $arrayAttributes);
             $output .= $widgetRadio->render();
         }
         return $output;

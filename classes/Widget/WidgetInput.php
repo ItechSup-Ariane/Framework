@@ -33,4 +33,5 @@ abstract class WidgetInput extends Widget
 
         return $output;
     }
+
 }
