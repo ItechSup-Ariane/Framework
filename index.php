@@ -22,8 +22,14 @@ $form = new Itechsup\FormFwk\Form\Form();
 $form->addWidget(new Itechsup\FormFwk\Widget\WidgetImpl\WidgetText('txt_name', 'gruesome label for text'));
 $form->addWidget(new Itechsup\FormFwk\Widget\WidgetImpl\WidgetMail('mail_name', 'gruesome label for mail'));
 
+$options = array('a' => 'Ma lettre A', 'b' => 'Ma lettre B', 'c' => 'Ma lettre C');
+$form->addWidget(new Itechsup\FormFwk\Widget\Choice\Impl\WidgetCheckbox('checkbox_name', 'label for CB', $htmlAttributes, $options));
+
 if (!empty($_POST)) {
     $form->bind($_POST);
+    echo '<pre>';
+    print_r($_POST);
+    echo '</pre>';
 }
 ?>
 <html>
