@@ -9,6 +9,7 @@ use Itechsup\FormFwk\Widget\Widget;
  */
 abstract class WidgetInput extends Widget
 {
+
     /**
      * Renderer for a text widget
      */
@@ -32,4 +33,5 @@ abstract class WidgetInput extends Widget
 
         return $output;
     }
+
 }
