@@ -23,7 +23,11 @@ class SimpleExpended extends AbstractWidgetChoice
     {
         $output = $this->renderLabel();
         foreach($this->options as $key => $value){
-            $widgetRadio = new WidgetRadio($this->name, $value, ['id' => $this->getId().$key, 'value' => $key]);
+            $arrayAttributes = ['id' => $this->getId().$key, 'value' => $key];
+            if($this->isOptionSelected($key)){
+                $arrayAttributes['selected'] = "";
+            }
+            $widgetRadio = new WidgetRadio($this->name, $value, $arrayAttributes);
             $output .= $widgetRadio->render();
         }
         return $output;
