@@ -3,14 +3,14 @@ spl_autoload_register(function ($class) {
 
     $prefix = 'Itechsup\\FormFwk';
 
-    $base_dir = __DIR__.DIRECTORY_SEPARATOR.'classes';
+    $base_dir = __DIR__ . DIRECTORY_SEPARATOR . 'classes';
 
     $len = strlen($prefix);
     if (strncmp($prefix, $class, $len) !== 0) {
         return;
     }
     $relative_class = substr($class, $len);
-    $file = $base_dir.str_replace('\\', DIRECTORY_SEPARATOR, $relative_class) . '.php';
+    $file = $base_dir . str_replace('\\', DIRECTORY_SEPARATOR, $relative_class) . '.php';
 
     // if the file exists, require it
     if (file_exists($file)) {
@@ -42,7 +42,7 @@ if (!empty($_POST)) {
     </head>
     <body>
         <div id="wrapper">
-        <?php echo $form->render(); ?>
+            <?php echo $form->render(); ?>
         </div>
 	</body>
 </html>
