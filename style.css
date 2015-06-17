@@ -1,6 +1,7 @@
 body{
     background: url("piou_piou_laser.jpg") no-repeat top fixed;
     font-family: "Indie Flower",cursive;
+	color: red;
 }
 #wrapper{
     width: 600px;
