@@ -1,19 +1,18 @@
 <?php
 
-namespace Itechsup\FormFwk\Widget;
+namespace ItechSup\FormFwk\Widget\Choice;
 
 use Itechsup\FormFwk\Widget\Widget;
 
 /**
- * Nice OO superclass for our Form choice Widgets.
+ * AbstractWidgetChoice offers high level utilities for handing choices in web 
+ * form. Awesome!
+ *
+ * @author Corentin
  */
-abstract class WidgetChoice extends Widget
+abstract class AbstractWidgetChoice extends Widget
 {
-    /** 
-     * Value list to select
-     *
-     * @var array() 
-     */
+
     protected $options = [];
 
     public function __construct($name, $label = null, $htmlAttributes = [], $options = [])
@@ -21,6 +20,5 @@ abstract class WidgetChoice extends Widget
         parent::__construct($name, $label, $htmlAttributes);
         $this->options = $options;
     }
-    
-    
+
 }

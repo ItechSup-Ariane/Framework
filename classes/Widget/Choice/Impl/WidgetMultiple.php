@@ -9,10 +9,12 @@ use Itechsup\FormFwk\Widget\WidgetChoice;
  */
 class WidgetMultiple extends WidgetChoice
 {
+
     protected $type = 'List';
-    
-    public function render() {
-         if ($this->data !== null) {
+
+    public function render()
+    {
+        if ($this->data !== null) {
             $this->htmlAttributes['value'] = $this->data;
         }
 
@@ -22,35 +24,35 @@ class WidgetMultiple extends WidgetChoice
 
         $output = $this->renderlabel();
         $output .= '<select ';
-        $output .= $this->renderHtmlAttributes()."Multiple" ;
+        $output .= $this->renderHtmlAttributes() . "Multiple";
         $output .= '/>';
-        $output .= $this->renderOptions() ;
+        $output .= $this->renderOptions();
         $output .= '</select>';
-        
+
         return $output;
     }
-    
-    public function renderOptions() 
+
+    public function renderOptions()
     {
-        foreach ($this->option as $key => $value)
-        {
+        foreach ($this->option as $key => $value) {
             if (is_array($value)) {
-                $s .= '<optgroup label="' . $key . '">';
+                $output .= '<optgroup label="' . $key . '">';
+                foreach ($value as $v) {
+                    $output .= renderOption($v, $this->data);
+                }
+                $output .= '</optgroup>';
             }
-            $output .= '<option ';
-            $output .= renderEndOption($value, $this->data);
-            $output .= '</option>';
+            $output .= renderOption($key, $this->data);
         }
         return $output;
     }
-    
-    public function renderEndOption($option, $data) 
-    { 
-        if(in_array($option, $data))
-        {
-            return 'selected>'.$option ;
+
+    public function renderOption($option, $data)
+    {
+        if (in_array($option, $data)) {
+            return '<option selected>' . $option . '</option>';
         }
-        return '>'.$option ;
+        return '<option>' . $option . '</option>';
     }
-    
+
 }
