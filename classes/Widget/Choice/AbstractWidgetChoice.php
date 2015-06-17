@@ -3,6 +3,7 @@
 namespace Itechsup\FormFwk\Widget\Choice;
 
 use Itechsup\FormFwk\Widget\Widget;
+
 /**
  * AbstractWidgetChoice offers high level utilities for handing choices in web 
  * form. Awesome!
@@ -17,6 +18,12 @@ abstract class AbstractWidgetChoice extends Widget
     {
         parent::__construct($name, $label, $htmlAttributes);
         $this->options = $options;
+    }
+
+    protected function isOptionSelected($key)
+    {
+        return $this->data !== null && array_search($key, $this->data) ;
+        
     }
     
 }
