@@ -22,6 +22,13 @@ $form = new Itechsup\FormFwk\Form\Form();
 $form->addWidget(new Itechsup\FormFwk\Widget\WidgetImpl\WidgetText('txt_name', 'gruesome label for text'));
 $form->addWidget(new Itechsup\FormFwk\Widget\WidgetImpl\WidgetMail('mail_name', 'gruesome label for mail'));
 
+$option[] = "1";
+$option[] = "2";
+$option[] = "3";
+
+$html[] = "";
+
+$form->addWidget(new Itechsup\FormFwk\Widget\Choice\Impl\WidgetSelectSimple('liste', 'gruesome label for mail',$html,$option));
 if (!empty($_POST)) {
     $form->bind($_POST);
 }
