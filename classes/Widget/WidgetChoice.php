@@ -17,4 +17,5 @@ abstract class WidgetChoice extends Widget
         parent::__construct($name, $label, $htmlAttributes);
         $this->options = $options;
     }
+
 }

@@ -9,5 +9,7 @@ use Itechsup\FormFwk\Widget\WidgetInput;
  */
 class WidgetText extends WidgetInput
 {
+
     protected $type = 'text';
+
 }
