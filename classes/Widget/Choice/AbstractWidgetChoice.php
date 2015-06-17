@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
 
 namespace Itechsup\FormFwk\Widget\Choice;
