@@ -9,7 +9,11 @@ use Itechsup\FormFwk\Widget\Widget;
  */
 abstract class WidgetChoice extends Widget
 {
-
+    /** 
+     * Value list to select
+     *
+     * @var array() 
+     */
     protected $options = [];
 
     public function __construct($name, $label = null, $htmlAttributes = [], $options = [])
@@ -17,4 +21,6 @@ abstract class WidgetChoice extends Widget
         parent::__construct($name, $label, $htmlAttributes);
         $this->options = $options;
     }
+    
+    
 }
