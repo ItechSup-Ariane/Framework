@@ -42,13 +42,13 @@ class WidgetMultiple extends AbstractWidgetChoice
     {
         $output='';
         foreach ($this->options as $key => $value) {
-//            if (is_array($value)) {
-//                $output .= '<optgroup label="'.$key.'">';
-//                foreach ($value as $k=>$v) {
-//                    $output .= renderOption($k, $v);
-//                }
-//                $output .= '</optgroup>';
-//            }
+            if (is_array($value)) {
+                $output .= '<optgroup label="'.$key.'">';
+                foreach ($value as $k=>$v) {
+                    $output .= $this->renderOption($k, $v);
+                }
+                $output .= '</optgroup>';
+            }
             $output .= $this->renderOption($key, $value);
         }
         return $output;
