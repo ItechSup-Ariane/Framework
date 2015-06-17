@@ -12,8 +12,9 @@ use Itechsup\FormFwk\Widget\Widget;
  */
 abstract class AbstractWidgetChoice extends Widget
 {
+
     protected $options = [];
-   
+
     public function __construct($name, $label = null, $htmlAttributes = [], $options = [])
     {
         parent::__construct($name, $label, $htmlAttributes);
@@ -25,5 +26,5 @@ abstract class AbstractWidgetChoice extends Widget
         return $this->data !== null && false !== array_search($key, $this->data) ;
         
     }
-    
+
 }
