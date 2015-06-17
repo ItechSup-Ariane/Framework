@@ -2,12 +2,12 @@
 
 namespace Itechsup\FormFwk\Widget\Choice\Impl;
 
-use Itechsup\FormFwk\Widget\WidgetChoice;
+use Itechsup\FormFwk\Widget\Choice\AbstractWidgetChoice;
 
 /**
  * Nice OO interface for our Form mail Widgets.
  */
-class WidgetMultiple extends WidgetChoice
+class WidgetMultiple extends AbstractWidgetChoice
 {
 
     protected $type = 'List';
@@ -42,15 +42,15 @@ class WidgetMultiple extends WidgetChoice
      */
     public function renderOptions()
     {
-        foreach ($this->option as $key => $value) {
-            if (is_array($value)) {
-                $output .= '<optgroup label="'.$key.'">';
-                foreach ($value as $v) {
-                    $output .= renderOption($v);
-                }
-                $output .= '</optgroup>';
-            }
-            $output .= renderOption($key);
+        foreach ($this->options as $key => $value) {
+//            if (is_array($value)) {
+//                $output .= '<optgroup label="'.$key.'">';
+//                foreach ($value as $k=>$v) {
+//                    $output .= renderOption($k, $v);
+//                }
+//                $output .= '</optgroup>';
+//            }
+            $output .= $this->renderOption($key, $value);
         }
         return $output;
     }
@@ -60,10 +60,10 @@ class WidgetMultiple extends WidgetChoice
      * @param string $option
      * @return string
      */
-    public function renderOption($option)
+    public function renderOption($key, $value)
     {
-        if (in_array($option, $this->data)) {
-            return '<option selected>' . $option . '</option>';
+        if ($this->isOptionSelected($key)) {
+            return '<option value="'.$key.'" selected>' . $value . '</option>';
         }
         return '<option>' . $option . '</option>';
     }
