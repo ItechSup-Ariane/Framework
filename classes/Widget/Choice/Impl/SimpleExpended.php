@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-namespace Itechsup\FormFwk\Widget\Choice;
+namespace Itechsup\FormFwk\Widget\Choice\Impl;
 
 use Itechsup\FormFwk\Widget\Choice\AbstractWidgetChoice;
 use Itechsup\FormFwk\Widget\WidgetImpl\WidgetRadio;
