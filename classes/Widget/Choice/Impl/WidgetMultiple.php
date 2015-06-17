@@ -1,19 +1,23 @@
 <?php
+
 namespace Itechsup\FormFwk\Widget\Choice\Impl;
+
 use Itechsup\FormFwk\Widget\Choice\AbstractWidgetChoice;
+
 /**
  * widget multiple list
  */
 class WidgetMultiple extends AbstractWidgetChoice
 {
+
     protected $type = 'List';
+
     /**
      * Renderer HTML code for WidgetMultiple (HTML select multiple)
      * @return string
      */
     public function render()
     {
-
 
         // And to be sure to generate a proper html text input with the proper name...
         $this->htmlAttributes['name'] = $this->name."[]";
@@ -26,8 +30,10 @@ class WidgetMultiple extends AbstractWidgetChoice
         $output .= '>';
         $output .= $this->renderOptions();
         $output .= '</select>';
+
         return $output;
     }
+
     /**
      * Renderer HTML Code for options and groups of select
      * @return string
@@ -47,6 +53,7 @@ class WidgetMultiple extends AbstractWidgetChoice
         }
         return $output;
     }
+
     /**
      * Renderer HTML Code for option of select
      * @param string $option
@@ -57,4 +64,6 @@ class WidgetMultiple extends AbstractWidgetChoice
         $selected = $this->isOptionSelected($key)? ' selected' : '';
         return '<option'.$selected.'>'.$value.'</option>';
     }
+
 }
+
