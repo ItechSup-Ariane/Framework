@@ -1,6 +1,6 @@
 <?php
 
-namespace ItechSup\FormFwk\Widget\Choice;
+namespace Itechsup\FormFwk\Widget\Choice;
 
 use Itechsup\FormFwk\Widget\Widget;
 /**
