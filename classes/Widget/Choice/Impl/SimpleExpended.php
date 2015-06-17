@@ -23,7 +23,7 @@ class SimpleExpended extends AbstractWidgetChoice
     {
         $output = $this->renderLabel();
         foreach($this->options as $key => $value){
-            $arrayAttributes = ['id' => $this->getId().$key, 'value' => $key];
+            $arrayAttributes = ['id' => $this->getId().'_'.$key, 'value' => $key];
             if($this->isOptionSelected($key)){
                 $arrayAttributes['checked'] = "";
             }
