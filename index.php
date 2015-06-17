@@ -21,6 +21,8 @@ spl_autoload_register(function ($class) {
 $form = new Itechsup\FormFwk\Form\Form();
 $form->addWidget(new Itechsup\FormFwk\Widget\WidgetImpl\WidgetText('txt_name', 'gruesome label for text'));
 $form->addWidget(new Itechsup\FormFwk\Widget\WidgetImpl\WidgetMail('mail_name', 'gruesome label for mail'));
+$form->addWidget(new Itechsup\FormFwk\Widget\Choice\SimpleExpended('radio_name', 'gruesome label for radio',
+        [], ['toto', 'titi', 'tata']));
 
 if (!empty($_POST)) {
     $form->bind($_POST);
