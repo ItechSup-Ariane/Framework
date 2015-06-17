@@ -18,11 +18,11 @@ abstract class WidgetCheckboxSelect extends AbstractWidgetChoice
         $this->htmlAttributes['id'] = $checkboxId.'_'.$checkboxKey;
         $this->htmlAttributes['value'] = $checkboxValue;
         
-        $output .= '<input ';
+        $output = '<input ';
         $output .= $this->renderHtmlAttributes();
-        /*if ($this->isOptionSelected($this->htmlAttributes['name'])) {
+        if ($this->isOptionSelected($this->htmlAttributes['name'])) {
             $output .= 'checked ';
-        }*/
+        }
         $output .= '/>';
         $output .= $checkboxLabel;
 
