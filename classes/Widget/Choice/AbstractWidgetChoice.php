@@ -23,10 +23,7 @@ abstract class AbstractWidgetChoice extends Widget
 
     protected function isOptionSelected($key)
     {
-        if($this->data!=null){
-            return array_search($key, $this->data);
-        }
-        return false;
+        return $this->data != null && array_search($key, $this->data);
     }
 
 }
