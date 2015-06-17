@@ -22,4 +22,10 @@ abstract class AbstractWidgetChoice extends Widget
         $this->options = $options;
     }
 
+    protected function isOptionSelected($key)
+    {
+        return array_search($key, $this->data);
+        
+    }
+
 }
