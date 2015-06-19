@@ -38,7 +38,7 @@ class WidgetMultipleExpanded extends AbstractWidgetChoice
 
     }	
 
-    public function renderOptions($value, $label)
+    private function renderOptions($value, $label)
     {
 
         $output = '';
