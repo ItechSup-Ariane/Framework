@@ -7,8 +7,16 @@ use Itechsup\FormFwk\Form\ValidatorSchema;
 /**
  * This nice class offers an OO interface for an HTML Form. Enjoy!
  */
-class Form extends ValidatorSchema
+class Form
 {
+
+    private $schema;
+
+    public function __construct()
+    {
+        $this->schema = new ValidatorSchema();
+    }
+
     /**
      * Output a nice HTML string for our beloved form.
      *
@@ -17,8 +25,8 @@ class Form extends ValidatorSchema
     public function render()
     {
         $output = $this->renderFormStart();
-        foreach ($this->widgets as $widget) {
-            $output .= $widget[0]->render();
+        foreach ($this->schema->getWidgets() as $widget) {
+            $output .= $widget->render();
         }
         $output .= $this->renderFormEnd();
 
@@ -33,9 +41,7 @@ class Form extends ValidatorSchema
      */
     public function bind($data)
     {
-        foreach ($this->widgets as $name => $widget) {
-            $widget[0]->bind($data[$name]);
-        }
+        $this->schema->bind($data);
     }
 
     /**
@@ -56,6 +62,16 @@ class Form extends ValidatorSchema
     private function renderFormEnd()
     {
         return '<input type="submit" value="Soumet moi !" /></form>';
+    }
+
+    public function addWidget($widget, array $validators = [])
+    {
+        $this->schema->addWidget($widget, $validators);
+    }
+
+    public function isValid()
+    {
+        return $this->schema->isValid();
     }
 
 }

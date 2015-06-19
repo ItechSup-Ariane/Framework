@@ -20,7 +20,7 @@ spl_autoload_register(function ($class) {
 
 $form = new Itechsup\FormFwk\Form\Form();
 $options = ['les lettres' => ['a' => 'Ma lettre A', 'b' => 'Ma lettre B', 'c' => 'Ma lettre C'], '001' => 'tutu is so plop'];
-$form->addWidget( new Itechsup\FormFwk\Widget\Choice\Impl\WidgetSelectSimple('s', 'label1', [], $options));
+$form->addWidget( new Itechsup\FormFwk\Widget\Choice\Impl\WidgetSelectSimple('s', 'label1', [], $options),[new \Itechsup\FormFwk\Validator\ValidatorYouShouldNotPass()]);
 $form->addWidget( new Itechsup\FormFwk\Widget\Choice\Impl\WidgetSimpleExpanded('se', 'label2', [], $options));
 $form->addWidget( new Itechsup\FormFwk\Widget\Choice\Impl\WidgetMultipleExpanded('me', 'label3', [], $options));
 $form->addWidget( new Itechsup\FormFwk\Widget\Choice\Impl\WidgetMultiple('m', 'label4', [], $options));

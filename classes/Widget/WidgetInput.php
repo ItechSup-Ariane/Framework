@@ -13,7 +13,7 @@ abstract class WidgetInput extends Widget
     /**
      * Renderer for a text widget
      */
-    public function render()
+    public function renderWidget()
     {
         if ($this->data !== null) {
             $this->htmlAttributes['value'] = $this->data;
@@ -24,8 +24,7 @@ abstract class WidgetInput extends Widget
         $this->htmlAttributes['name'] = $this->name;
         $this->htmlAttributes['id'] = $this->getId();
 
-        $output = $this->renderlabel();
-        $output .= '<input ';
+        $output = '<input ';
 
         $output .= $this->renderHtmlAttributes();
 

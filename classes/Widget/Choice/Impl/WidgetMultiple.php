@@ -16,28 +16,13 @@ class WidgetMultiple extends AbstractWidgetSelect
      * Renderer HTML code for WidgetMultiple (HTML select multiple)
      * @return string
      */
-    public function render()
+    public function renderWidget()
     {
-
-        // And to be sure to generate a proper html text input with the proper name...
-        $this->htmlAttributes['name'] = $this->name."[]";
-        $this->htmlAttributes['id'] = $this->getId();
         $this->htmlAttributes['multiple'] = "multiple";
 
-        $output = $this->renderlabel();
-        $output .= '<select ';
-        $output .= $this->renderHtmlAttributes();
-        $output .= '>';
-        foreach ($this->options as $key => $value) {
-            if (is_array($value)) {
-                $output .= $this->renderOptGroup($key, $value);
-            } else {
-                $output .= $this->renderOptions($key, $value);
-            }
-        }
-        $output .= '</select>';
-
-        return $output;
+        return parent::renderWidget();
+        
+        
     }
 
 }
