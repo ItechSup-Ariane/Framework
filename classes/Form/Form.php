@@ -7,7 +7,7 @@ use Itechsup\FormFwk\Form\ValidatorSchema;
 /**
  * This nice class offers an OO interface for an HTML Form. Enjoy!
  */
-class Form extends Schema
+class Form extends ValidatorSchema
 {
     /**
      * Output a nice HTML string for our beloved form.
