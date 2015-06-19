@@ -1,9 +1,8 @@
 <?php
-
 namespace Itechsup\FormFwk\Widget\Choice\Impl;
 
 use Itechsup\FormFwk\Widget\Choice\AbstractWidgetChoice;
-
+use Itechsup\FormFwk\Widget\Choice\AbstractWidgetSelect;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -17,29 +16,25 @@ use Itechsup\FormFwk\Widget\Choice\AbstractWidgetChoice;
  */
 class WidgetSelectSimple extends AbstractWidgetChoice
 {
-    /*
-     * Render function : Method to render the widget
-     */
 
+    /*
+    * Render function : Method to render the widget
+    * 
+    * @return string : the HTML string for display
+    */
     public function render()
     {
         $this->options;
-        $retour = $this->renderLabel();
-        $retour .= '<select name="';
-        $retour .= $this->name;
-        $retour .= '[]">';
+        $return = $this->renderlabel().'<select name="'.$this->name.'[]">';
         foreach ($this->options as $key => $value) {
-            $retour .= '<option value="' . $value . '"';
-            if ($this->isOptionSelected($value)) {
-                $retour .= ' selected';
+            if (is_array($value)) {
+                $return .= $this->renderOptGroup($key, $value);
+            } else {
+                $return .= $this->renderOptions($key, $value);
             }
-            $retour .= '>';
-
-            $retour .= $value . '</option>';
         }
-        $retour .= '</select>';
-
-        return $retour;
+        $return .= '</select>';
+        
+        return $return;
     }
-
 }
