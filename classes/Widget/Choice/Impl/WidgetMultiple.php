@@ -2,12 +2,12 @@
 
 namespace Itechsup\FormFwk\Widget\Choice\Impl;
 
-use Itechsup\FormFwk\Widget\Choice\AbstractWidgetChoice;
+use Itechsup\FormFwk\Widget\Choice\AbstractWidgetSelect;
 
 /**
  * widget multiple list
  */
-class WidgetMultiple extends AbstractWidgetChoice
+class WidgetMultiple extends AbstractWidgetSelect
 {
 
     protected $type = 'List';
