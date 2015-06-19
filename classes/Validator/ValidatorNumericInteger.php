@@ -11,21 +11,17 @@ namespace Itechsup\FormFwk\Validator;
 use Exception;
 
 /**
- * Description of ValidatorSpecialChars
+ * Description of ValidatorNumericInteger
  *
  * @author Thomas
  */
-class ValidatorSpecialChars extends AbstractValidator implements InterfaceValidator
+class ValidatorNumericInteger extends AbstractValidator implements InterfaceValidator
 {
-
+    
     public function validate($value)
     {
-        $pattern = "#[a-zA-Z0-9_-]#";
-
-        $result = preg_match($pattern, $value);
-
-        if ($result !== 1) {
-            throw new Exception("presence de caracteres speciaux");
+        if (!is_numeric($value) || !is_int($value)) {
+            throw new Exception("valeur non entier numerique");
         }
     }
 
