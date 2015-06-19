@@ -25,27 +25,32 @@ class WidgetSimpleExpanded extends AbstractWidgetChoice
     public function render()
     {
         $output = $this->renderLabel();
-        foreach($this->options as $key1 => $value1){
-            if(is_array($value1)){
-                $output .= '<fieldset>';
-                foreach($value1 as $key2 => $value2){
-                    $output .= $this->buildRadioRender($key1, $value2, $key2);
+        foreach($this->options as $valueRadio => $labelRadio){
+            // Array case
+            if(is_array($labelRadio)){
+                // Redefine value for Group
+                $legendGroupRadio = $valueRadio;
+                $arrayGroupRadio = $labelRadio;
+                // Generate HTML for Group
+                $output .= '<fieldset><legend>'.$legendGroupRadio.'</legend>';
+                foreach($arrayGroupRadio as $valueGroup => $labelGroup){
+                    $output .= $this->renderOptions($valueGroup, $labelGroup);
                 }
                 $output .= '</fieldset>';
             } else {
-                $output .= $this->buildRadioRender($key1, $value1);
+                $output .= $this->renderOptions($valueRadio, $labelRadio);
             }
         }
         return $output;
     }
     
-    private function buildRadioRender($key, $value, $key2 = null){
-        $arrayAttributes = ['id' => $this->getId().'_'.$key.$key2, 'value' => $key.$key2];
-        var_dump($key.$key2);
-        if($this->isOptionSelected($key.$key2)){
+    private function renderOptions($value, $label){
+        $arrayAttributes = ['id' => $this->getId().'_'.$value, 'value' => $value];
+        var_dump($value);
+        if($this->isOptionSelected($value)){
             $arrayAttributes['checked'] = "";
         }
-        $widgetRadio = new WidgetRadio($this->name."_".$key.$key2."[".$key.$key2."]", $value, $arrayAttributes);
+        $widgetRadio = new WidgetRadio($this->name."[]", $label, $arrayAttributes);
         return $widgetRadio->render();
     }
 
