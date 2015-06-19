@@ -1,11 +1,15 @@
 <?php
 
+namespace Itechsup\FormFwk\Widget\Choice;
+
+use Itechsup\FormFwk\Widget\Choice\AbstractWidgetChoice;
+
 /**
  * Description of AbstractWidgetSelect
  *
  * @author nathan
  */
-class AbstractWidgetSelect extends AbstractWidgetChoice
+abstract class AbstractWidgetSelect extends AbstractWidgetChoice
 {
 
     /**
