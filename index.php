@@ -30,18 +30,17 @@ $option[] = "3";
 
 $html[] = "";
 
-$form->addWidget(new Itechsup\FormFwk\Widget\Choice\Impl\WidgetSelectSimple('liste', 'gruesome label for mail',$html,$option));
+$form->addWidget(new Itechsup\FormFwk\Widget\Choice\Impl\WidgetSelectSimple('liste', 'gruesome label for list',$html,$option));
 $form->addWidget(new Itechsup\FormFwk\Widget\Choice\Impl\SimpleExpended('radio_name', 'gruesome label for radio', [], ['toto', 'titi', 'tata']));
 
-$options = array('a' => 'Ma lettre A', 'b' => 'Ma lettre B', 'c' => 'Ma lettre C');
+// $options = array('a' => 'Ma lettre A', 'b' => 'Ma lettre B', 'c' => 'Ma lettre C');
+// $options = array('Group1'=> array('a' => 'Ma lettre A', 'b' => 'Ma lettre B', 'c' => 'Ma lettre C'), 'Group2' => array('d' => 'Ma lettre D', 'e' => 'Ma lettre E', 'f' => 'Ma lettre F'));
+$options = ['Group1' => ['a' => 'Ma lettre A', 'b' => 'Ma lettre B', 'c' => 'Ma lettre C'],'Group2' => ['d' => 'Ma lettre D', 'e' => 'Ma lettre E', 'f' => 'Ma lettre F'], 'G' => 'Ma lettre G'];
 $htmlAttributes = array();
 $form->addWidget(new Itechsup\FormFwk\Widget\Choice\Impl\WidgetMultipleExpanded('checkbox_name', 'label for CB', $htmlAttributes, $options));
 
 if (!empty($_POST)) {
     $form->bind($_POST);
-    echo '<pre>';
-    print_r($_POST);
-    echo '</pre>';
 }
 ?>
 <html>
@@ -49,11 +48,19 @@ if (!empty($_POST)) {
         <meta charset="UTF-8">
         <title>Incroyable! jamais vu !</title>
         <link rel="stylesheet" type="text/css" href="style.css" />
-        <link href="http://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet" type="text/css" />
+        <!--<link href="http://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet" type="text/css" />-->
     </head>
     <body>
         <div id="wrapper">
-            <?php echo $form->render(); ?>
+            <?php 
+				echo $form->render(); 
+				if (!empty($_POST)) {
+					echo '<pre>';
+					print_r($_POST);
+					echo '</pre>';
+				}
+			?>
         </div>
 	</body>
 </html>
+
