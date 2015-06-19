@@ -30,9 +30,9 @@ class WidgetMultiple extends AbstractWidgetSelect
         $output .= '>';
         foreach ($this->options as $key => $value) {
             if (is_array($value)) {
-                $output .= $this->renderOptGroup($k, $v);
+                $output .= $this->renderOptGroup($key, $value);
             } else {
-                $output .= $this->renderOption($key, $value);
+                $output .= $this->renderOptions($key, $value);
             }
         }
         $output .= '</select>';
