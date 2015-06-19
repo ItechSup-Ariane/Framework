@@ -26,13 +26,8 @@ class WidgetSelectSimple extends AbstractWidgetChoice
         $this->options;
         $return = $this->renderlabel().'<select name="'.$this->name.'[]">';
         foreach ($this->options as $key => $value) {
-            if (is_array($value)){
-                $return .= '<optgroup label="'.$key.'">';
-                foreach ($value as $opt => $lbl) {
-                    $return .= $this->renderOptions($opt, $lbl);
-                }
-                $return .= '</optgroup>';
-                
+            if (is_array($value)) {
+                $return .= $this->renderOptGroup($key, $value);
             } else {
                 $return .= $this->renderOptions($key, $value);
             }
@@ -56,7 +51,15 @@ class WidgetSelectSimple extends AbstractWidgetChoice
             $return .= ' selected';
         }
         $return .= '>'.$value.'</option>'; 
-        
         return $return;
+    }
+    
+    private function renderOptGroup($key, $value)
+    {
+        $return .= '<optgroup label="'.$key.'">';
+        foreach ($value as $opt => $lbl) {
+            $return .= $this->renderOptions($opt, $lbl);
+        }
+        $return .= '</optgroup>';
     }
 }
