@@ -17,7 +17,7 @@ class ValidatorSchema
      */
     private $widgets = [];
     private $validators = [];
-    private $errors = [];
+    private $hasError = false;
     private $data = null;
 
     public function addWidget($widget, array $validators = [])
@@ -43,22 +43,22 @@ class ValidatorSchema
     private function validate()
     {
         foreach ($this->validators as $widgetName => $validators) {
-            $errorMsg = '';
+            $errorMsg = [];
             foreach ($validators as $validator) {
                 try {
                     $validator->validate($this->data[$widgetName]);
                 } catch (ValidatorException $e) {
-                    $errorMsg .= $validator->getMessage();
-                    
+                    $errorMsg[] = $validator->getMessage();
                 }
             }
-            $this->errors[$widgetName][] = $errorMsg;
+            $this->widgets[$widgetName]->setErrors($errorMsg);
+            $this->hasError = $this->hasError || !empty($errorMsg);
         }
     }
 
     public function isValid()
     {
-        return $this->data !== null && empty($this->errors);
+        return $this->data !== null && $this->hasError == true;
     }
 
 }
