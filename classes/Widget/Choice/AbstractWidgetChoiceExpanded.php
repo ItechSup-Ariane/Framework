@@ -21,9 +21,9 @@ abstract class AbstractWidgetChoiceExpanded extends AbstractWidgetChoice{
      * render function
      * @return string containing the html code to generate the group of radioboxes
      */
-    public function render()
+    public function renderWidget()
     {
-        $output = $this->renderLabel();
+        $output = '';
         foreach($this->options as $valueRadio => $labelRadio){
             // Array case
             if(is_array($labelRadio)){
