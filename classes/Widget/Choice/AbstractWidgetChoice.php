@@ -12,6 +12,7 @@ use Itechsup\FormFwk\Widget\Widget;
  */
 abstract class AbstractWidgetChoice extends Widget
 {
+	
 
     protected $options = [];
 
