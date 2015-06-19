@@ -2,30 +2,13 @@
 
 namespace Itechsup\FormFwk\Form;
 
-use Itechsup\FormFwk\Widget\Widget;
+use Itechsup\FormFwk\Form\Schema;
 
 /**
  * This nice class offers an OO interface for an HTML Form. Enjoy!
  */
-class Form
+class Form extends Schema
 {
-
-    /**
-     * Widget holder
-     */
-    private $widgets = [];
-
-    /**
-     * Adds a Widget to our beloved Form.
-     *
-     * @param Widget $widget the Widget to add
-     * @return void
-     */
-    public function addWidget(Widget $widget)
-    {
-        $this->widgets[$widget->getName()] = $widget;
-    }
-
     /**
      * Output a nice HTML string for our beloved form.
      *
@@ -35,7 +18,7 @@ class Form
     {
         $output = $this->renderFormStart();
         foreach ($this->widgets as $widget) {
-            $output .= $widget->render();
+            $output .= $widget[0]->render();
         }
         $output .= $this->renderFormEnd();
 
@@ -51,7 +34,7 @@ class Form
     public function bind($data)
     {
         foreach ($this->widgets as $name => $widget) {
-            $widget->bind($data[$name]);
+            $widget[0]->bind($data[$name]);
         }
     }
 
