@@ -2,7 +2,7 @@
 
 namespace Itechsup\FormFwk\Form;
 
-use Itechsup\FormFwk\Form\Schema;
+use Itechsup\FormFwk\Form\ValidatorSchema;
 
 /**
  * This nice class offers an OO interface for an HTML Form. Enjoy!
