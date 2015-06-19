@@ -8,7 +8,7 @@
 
 namespace Itechsup\FormFwk\Validator;
 
-use Exception;
+use Itechsup\FormFwk\Exception\ValidatorException;
 
 /**
  * Description of ValidatorNumericInteger
@@ -21,7 +21,7 @@ class ValidatorNumericInteger extends AbstractValidator implements InterfaceVali
     public function validate($value)
     {
         if (!is_numeric($value) || !is_int($value)) {
-            throw new Exception("valeur non entier numerique");
+            throw new ValidatorException($this->getMessage());
         }
     }
 

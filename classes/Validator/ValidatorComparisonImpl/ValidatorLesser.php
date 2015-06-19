@@ -10,7 +10,7 @@ namespace Itechsup\FormFwk\Validator\ValidatorComparisonImpl;
 
 use Itechsup\FormFwk\Validator\InterfaceValidator;
 use Itechsup\FormFwk\Validator\ValidatorComparison;
-use Exception;
+use Itechsup\FormFwk\Exception\ValidatorException;
 
 /**
  * Description of ValidatorComparison
@@ -24,7 +24,7 @@ class ValidatorLesser extends ValidatorComparison implements InterfaceValidator
     {
 
         if ($value >= $this->referenceValue) {
-            throw new Exception($this->getMessage());
+            throw new ValidatorException($this->getMessage());
         }
     }
 

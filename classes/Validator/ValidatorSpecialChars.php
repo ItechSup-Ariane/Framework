@@ -8,7 +8,7 @@
 
 namespace Itechsup\FormFwk\Validator;
 
-use Exception;
+use Itechsup\FormFwk\Exception\ValidatorException;
 
 /**
  * Description of ValidatorSpecialChars
@@ -25,7 +25,7 @@ class ValidatorSpecialChars extends AbstractValidator implements InterfaceValida
         $result = preg_match($pattern, $value);
 
         if ($result !== 1) {
-            throw new Exception("presence de caracteres speciaux");
+            throw new ValidatorException($this->getMessage());
         }
     }
 
