@@ -7,7 +7,7 @@ namespace Itechsup\FormFwk\Form;
  *
  * @author Maxime
  */
-abstract class Schema
+abstract class ValidatorSchema
 {
     /**
      * Widget,Validator, ErrorMessage holder
