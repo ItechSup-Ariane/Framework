@@ -1,11 +1,5 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  * Description of AbstractWidgetSelect
  *
@@ -21,17 +15,13 @@ class AbstractWidgetSelect extends AbstractWidgetChoice
      * @param type $value : the value of the option to render
      * @return string : the HTML string for display
      */
-    private function renderOptions($key, $value)
+    protected function renderOptions($key, $value)
     {
-        $return = '<option value="'.$key.'"';
-        if ($this->isOptionSelected($key)) {
-            $return .= ' selected';
-        }
-        $return .= '>'.$value.'</option>'; 
-        return $return;
+        $selected = $this->isOptionSelected($key) ? ' selected' : '';
+        return '<option value="'.$key.'"'.$selected.'>'.$value.'</option>';
     }
-    
-    private function renderOptGroup($key, $value)
+
+    protected function renderOptGroup($key, $value)
     {
         $return = '<optgroup label="'.$key.'">';
         foreach ($value as $opt => $lbl) {
@@ -40,4 +30,5 @@ class AbstractWidgetSelect extends AbstractWidgetChoice
         $return .= '</optgroup>';
         return $return;
     }
+
 }

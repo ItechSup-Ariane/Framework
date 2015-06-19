@@ -20,7 +20,7 @@ class WidgetMultiple extends AbstractWidgetChoice
     {
 
         // And to be sure to generate a proper html text input with the proper name...
-        $this->htmlAttributes['name'] = $this->name . "[]";
+        $this->htmlAttributes['name'] = $this->name."[]";
         $this->htmlAttributes['id'] = $this->getId();
         $this->htmlAttributes['multiple'] = "multiple";
 
@@ -28,42 +28,16 @@ class WidgetMultiple extends AbstractWidgetChoice
         $output .= '<select ';
         $output .= $this->renderHtmlAttributes();
         $output .= '>';
-        $output .= $this->renderOptions();
-        $output .= '</select>';
-
-        return $output;
-    }
-
-    /**
-     * Renderer HTML Code for options and groups of select
-     * @return string
-     */
-    public function renderOptions()
-    {
-        $output = '';
         foreach ($this->options as $key => $value) {
             if (is_array($value)) {
-                $output .= '<optgroup label="' . $key . '">';
-                foreach ($value as $k => $v) {
-                    $output .= $this->renderOption($k, $v);
-                }
-                $output .= '</optgroup>';
+                $output .= $this->renderOptGroup($k, $v);
             } else {
                 $output .= $this->renderOption($key, $value);
             }
         }
-        return $output;
-    }
+        $output .= '</select>';
 
-    /**
-     * Renderer HTML Code for option of select
-     * @param string $option
-     * @return string
-     */
-    public function renderOption($key, $value)
-    {
-        $selected = $this->isOptionSelected($key) ? ' selected' : '';
-        return '<option' . $selected . '>' . $value . '</option>';
+        return $output;
     }
 
 }
