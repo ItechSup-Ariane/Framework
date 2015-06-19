@@ -21,7 +21,7 @@ class AbstractWidgetSelect extends AbstractWidgetChoice
      * @param type $value : the value of the option to render
      * @return string : the HTML string for display
      */
-    private function renderOptions($key, $value)
+    protected function renderOptions($key, $value)
     {
         $return = '<option value="'.$key.'"';
         if ($this->isOptionSelected($key)) {
@@ -31,7 +31,7 @@ class AbstractWidgetSelect extends AbstractWidgetChoice
         return $return;
     }
     
-    private function renderOptGroup($key, $value)
+    protected function renderOptGroup($key, $value)
     {
         $return = '<optgroup label="'.$key.'">';
         foreach ($value as $opt => $lbl) {
