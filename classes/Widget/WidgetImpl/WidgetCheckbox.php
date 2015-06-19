@@ -1,10 +1,10 @@
 <?php
 
-namespace Itechsup\FormFwk\Widget\Choice\Impl;
+namespace Itechsup\FormFwk\Widget\WidgetImpl;
 
 use Itechsup\FormFwk\Widget\WidgetInput;
 
-class WidgetCheckboxSelect extends WidgetInput
+class WidgetCheckbox extends WidgetInput
 {
     
     protected $type = "checkbox";
