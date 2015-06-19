@@ -19,29 +19,32 @@ spl_autoload_register(function ($class) {
 });
 
 $form = new Itechsup\FormFwk\Form\Form();
-//$form->addWidget(new Itechsup\FormFwk\Widget\WidgetImpl\WidgetText('txt_name', 'gruesome label for text'));
-//$form->addWidget(new Itechsup\FormFwk\Widget\WidgetImpl\WidgetMail('mail_name', 'gruesome label for mail'));
-//$form->addWidget(new Itechsup\FormFwk\Widget\Choice\Impl\WidgetMultiple('list_multiple', 'My big list', array("name"=>"maliste"),array("1"=>"1","2"=>"2","3"=>"3","4"=>"4","5"=>"5","6"=>"6")));
+
+$form->addWidget(new Itechsup\FormFwk\Widget\WidgetImpl\WidgetText('txt_name', 'gruesome label for text'));
+$form->addWidget(new Itechsup\FormFwk\Widget\WidgetImpl\WidgetMail('mail_name', 'gruesome label for mail'));
 
 
-$option[] = "1"; // $option = ["1", "2", "3"] <-- suggestion de Corentin que je trouve fort à propos
-$option[] = "2";
-$option[] = "3";
+// Widget List Multiple
+$form->addWidget(new Itechsup\FormFwk\Widget\Choice\Impl\WidgetMultiple('list_multiple', 'My big list', array("name"=>"maliste"),array("1"=>"1","2"=>"2","3"=>"3","4"=>"4","5"=>"5","6"=>"6")));
 
+
+// Widget List
+$option = ["1", "2", "3"];
 $html[] = "";
+$form->addWidget(new Itechsup\FormFwk\Widget\Choice\Impl\WidgetSelectSimple('liste', 'gruesome label for list',$html,$option));
 
-//$form->addWidget(new Itechsup\FormFwk\Widget\Choice\Impl\WidgetSelectSimple('liste', 'gruesome label for mail',$html,$option));
+// Widget Radio
 $form->addWidget(new Itechsup\FormFwk\Widget\Choice\Impl\WidgetSimpleExpanded('radio_name', 'gruesome label for radio', [], ['tab' => ['0' => 'toto1', '1' => 'toto2'], '3' => 'titi', '4' => 'tata']));
 
-$options = array('a' => 'Ma lettre A', 'b' => 'Ma lettre B', 'c' => 'Ma lettre C');
-$htmlAttributes = array();
-//$form->addWidget(new Itechsup\FormFwk\Widget\Choice\Impl\WidgetCheckbox('checkbox_name', 'label for CB', $htmlAttributes, $options));
+// Widget Checkbox
+// $options = ['a' => 'Ma lettre A', 'b' => 'Ma lettre B', 'c' => 'Ma lettre C'];
+// $options = ['Group1'=> ['a' => 'Ma lettre A', 'b' => 'Ma lettre B', 'c' => 'Ma lettre C'], 'Group2' => ['d' => 'Ma lettre D', 'e' => 'Ma lettre E', 'f' => 'Ma lettre F']];
+$options = ['Group1' => ['a' => 'Ma lettre A', 'b' => 'Ma lettre B', 'c' => 'Ma lettre C'],'Group2' => ['d' => 'Ma lettre D', 'e' => 'Ma lettre E', 'f' => 'Ma lettre F'], 'G' => 'Ma lettre G'];
+$htmlAttributes[] = "";
+$form->addWidget(new Itechsup\FormFwk\Widget\Choice\Impl\WidgetMultipleExpanded('checkbox_name', 'gruesome label for checkbox', $htmlAttributes, $options));
 
 if (!empty($_POST)) {
     $form->bind($_POST);
-    echo '<pre>';
-    print_r($_POST);
-    echo '</pre>';
 }
 ?>
 <html>
@@ -53,7 +56,16 @@ if (!empty($_POST)) {
     </head>
     <body>
         <div id="wrapper">
-            <?php echo $form->render(); ?>
+            <?php 
+            echo $form->render(); 
+            
+            if (!empty($_POST)) {
+                echo '<pre>';
+                print_r($_POST);
+                echo '</pre>';
+            }
+            ?>
         </div>
-	</body>
+    </body>
 </html>
+

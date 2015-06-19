@@ -21,16 +21,18 @@ class WidgetSelectSimple extends AbstractWidgetChoice
     */
     public function render()
     {
+		$retour = $this->renderlabel();
+		
         $this->options;
-        $retour = '<select name="';
-        $retour .= $this->name;
-        $retour .= '[]">';
+		
+        $retour .= '<select name="'.$this->name.'[]">';
+		
         foreach ($this->options as $key => $value) {
-            $retour .= '<option value="'.$value;
-            if($this->isOptionSelected($key)) {
-                $retour .= '" selected';
+            $retour .= '<option value="'.$value.'"';
+            if($this->isOptionSelected($value)) {
+                $retour .= ' selected';
             }
-            $retour .= '">';
+            $retour .= '>';
             
             $retour .= $value.'</option>';
         }
