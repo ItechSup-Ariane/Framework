@@ -28,6 +28,7 @@ class AbstractWidgetSelect extends AbstractWidgetChoice
             $return .= $this->renderOptions($opt, $lbl);
         }
         $return .= '</optgroup>';
+        
         return $return;
     }
 
