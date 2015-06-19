@@ -2,8 +2,6 @@
 
 namespace Itechsup\FormFwk\Exception;
 
-
-
 /**
  * Description of ValidatorException
  *
