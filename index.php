@@ -50,19 +50,20 @@ if (!empty($_POST)) {
         <meta charset="UTF-8">
         <title>Incroyable! jamais vu !</title>
         <link rel="stylesheet" type="text/css" href="style.css" />
-        <!--<link href="http://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet" type="text/css" />-->
+        <link href="http://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet" type="text/css" />
     </head>
     <body>
         <div id="wrapper">
             <?php 
-				echo $form->render(); 
-				if (!empty($_POST)) {
-					echo '<pre>';
-					print_r($_POST);
-					echo '</pre>';
-				}
-			?>
+            echo $form->render(); 
+            
+            if (!empty($_POST)) {
+                echo '<pre>';
+                print_r($_POST);
+                echo '</pre>';
+            }
+            ?>
         </div>
-	</body>
+    </body>
 </html>
 
