@@ -25,6 +25,7 @@ $form->addWidget( new Itechsup\FormFwk\Widget\Choice\Impl\SimpleExpended('txt_na
 $form->addWidget( new Itechsup\FormFwk\Widget\Choice\Impl\WidgetCheckbox('txt_name', 'gruesome label for text', [], $options));
 $form->addWidget( new Itechsup\FormFwk\Widget\Choice\Impl\WidgetMultiple('txt_name', 'gruesome label for text', [], $options));
 
+
 if (!empty($_POST)) {
     $form->bind($_POST);
 }
@@ -42,3 +43,4 @@ if (!empty($_POST)) {
         </div>
 	</body>
 </html>
+

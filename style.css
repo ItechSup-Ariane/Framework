@@ -1,6 +1,10 @@
 body{
     background: url("piou_piou_laser.jpg") no-repeat top fixed;
     font-family: "Indie Flower",cursive;
+<<<<<<< HEAD
+    color: red;
+=======
+>>>>>>> a681d29ec4e65a6856e6ceb4081b98aa949a4ac9
 }
 #wrapper{
     width: 600px;
@@ -47,6 +51,7 @@ input[type="checkbox"],
 input[type="radio"]{
     width:10px;
     margin-left: 0;
+    display: block;
 }
 input[type="submit"],
 input[type="reset"]{
