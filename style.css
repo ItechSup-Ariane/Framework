@@ -51,6 +51,7 @@ input[type="radio"]{
 input[type="submit"],
 input[type="reset"]{
     width:auto;
+	display: block;
 }
 .error_message{
     font-weight: bold;
