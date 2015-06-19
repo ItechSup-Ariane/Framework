@@ -14,7 +14,7 @@ abstract class ValidatorSchema
      */
     protected $widgets = [];
     
-    public function addWidget($widget,$validators){
+    public function addWidget($widget,$validators = null){
         $this->widgets[$widget->getName()] = [$widget, $validators] ;
     }
 }
