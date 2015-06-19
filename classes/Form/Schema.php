@@ -5,7 +5,7 @@ namespace Itechsup\FormFwk\Form;
 /**
  * Description of Schema
  *
- * @author Maxime
+ * @author Maxime, Antoine, Thomas DF, Thomas D
  */
 abstract class Schema
 {
