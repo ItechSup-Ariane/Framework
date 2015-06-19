@@ -39,7 +39,15 @@ if (!empty($_POST)) {
     </head>
     <body>
         <div id="wrapper">
-            <?php echo $form->render(); ?>
+            <?php 
+                echo $form->render(); 
+            
+                if (!empty($_POST)) {
+                    echo '<pre>';
+                    print_r($_POST);
+                    echo '</pre>';
+                }
+            ?>
         </div>
 	</body>
 </html>
