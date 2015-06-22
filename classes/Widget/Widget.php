@@ -106,7 +106,7 @@ abstract class Widget
         return $this->name;
     }
 
-    function setErrors($errors)
+    public function setErrors($errors)
     {
         $this->errors = $errors;
     }

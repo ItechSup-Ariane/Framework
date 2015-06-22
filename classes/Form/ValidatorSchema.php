@@ -19,6 +19,7 @@ class ValidatorSchema
     private $validators = [];
     private $widgetMultiple = []; //tableau affectant une collection de widget pour un group de widget
     private $validatorsMultiple = []; //tableau affectant un validateur pour un group de widget
+    private $hasError = false;
     private $errors = [];
     private $data = null;
 
@@ -64,24 +65,26 @@ class ValidatorSchema
                 try {
                     $validator->validate($this->data[$widgetName]);
                 } catch (ValidatorException $e) {
-                    $errorMsg .= $validator->getMessage();
+                    $errorMsg[] = $validator->getMessage();
                 }
             }
             $this->errors[$widgetName][] = $errorMsg;
+            $this->hasError = $this->hasError || !empty($errorMsg);
         }
     }
     
     private function validateGroup()
     {
-        foreach ($this->$validatorsMultiple as $key => $validator) {
+        foreach ($this->validatorsMultiple as $key => $validator) {
             $errorMsg = '';
             try {
                 $validator->validate($this->widgetMultiple[$key]);
             } catch (ValidatorException $e) {
-                $errorMsg .= $validator->getMessage();
+                $errorMsg[] = $validator->getMessage();
             }
             foreach ($this->widgetMultiple[$key] as $widget) {
                 $this->errors[$widget->getName()][] = $errorMsg;
+                $this->hasError = $this->hasError || !empty($errorMsg);
             }
         }
     }
@@ -89,7 +92,7 @@ class ValidatorSchema
 
     public function isValid()
     {
-        return $this->data !== null && empty($this->errors);
+        return $this->data !== null && $this->hasError == true;
     }
 
 }
