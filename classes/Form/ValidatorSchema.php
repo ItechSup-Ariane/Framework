@@ -17,6 +17,8 @@ class ValidatorSchema
      */
     private $widgets = [];
     private $validators = [];
+    private $widgetMultiple = []; //tableau affectant une collection de widget pour un group de widget
+    private $validatorsMultiple = []; //tableau affectant un validateur pour un group de widget
     private $errors = [];
     private $data = null;
 
@@ -24,6 +26,19 @@ class ValidatorSchema
     {
         $this->widgets[$widget->getName()] = $widget;
         $this->validators[$widget->getName()] = $validators;
+    }
+    
+    public function addGroupWidget(array $widgets = [], $validator)
+    {
+        $newKey = $this->createKeys();
+        $this->widgetMultiple[$newKey] = $widgets;
+        $this->validatorsMultiple[$newKey] = $validator;
+    }
+    
+    private function createKeys()
+    {
+        $keys = array_keys($this->widgetMultiple);
+        return count($keys);
     }
 
     public function getWidgets()
@@ -38,6 +53,7 @@ class ValidatorSchema
             $widget->bind($this->data[$name]);
         }
         $this->validate();
+        $this->validateGroup();
     }
 
     private function validate()
@@ -49,12 +65,27 @@ class ValidatorSchema
                     $validator->validate($this->data[$widgetName]);
                 } catch (ValidatorException $e) {
                     $errorMsg .= $validator->getMessage();
-                    
                 }
             }
             $this->errors[$widgetName][] = $errorMsg;
         }
     }
+    
+    private function validateGroup()
+    {
+        foreach ($this->$validatorsMultiple as $key => $validator) {
+            $errorMsg = '';
+            try {
+                $validator->validate($this->widgetMultiple[$key]);
+            } catch (ValidatorException $e) {
+                $errorMsg .= $validator->getMessage();
+            }
+            foreach ($this->widgetMultiple[$key] as $widget) {
+                $this->errors[$widget->getName()][] = $errorMsg;
+            }
+        }
+    }
+    
 
     public function isValid()
     {
