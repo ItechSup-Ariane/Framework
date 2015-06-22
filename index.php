@@ -19,10 +19,12 @@ spl_autoload_register(function ($class) {
 });
 
 $form = new Itechsup\FormFwk\Form\Form();
-$form->addWidget(new Itechsup\FormFwk\Widget\WidgetImpl\WidgetText('txt_name', 'gruesome label for text'));
-$form->addWidget(new Itechsup\FormFwk\Widget\WidgetImpl\WidgetMail('mail_name', 'gruesome label for mail'));
-$form->addWidget(new Itechsup\FormFwk\Widget\Choice\Impl\SimpleExpended('radio_name', 'gruesome label for radio',
-        [], ['toto', 'titi', 'tata']));
+$options = ['les lettres' => ['a' => 'Ma lettre A', 'b' => 'Ma lettre B', 'c' => 'Ma lettre C'], '001' => 'tutu is so plop'];
+$form->addWidget( new Itechsup\FormFwk\Widget\Choice\Impl\WidgetSelectSimple('s', 'label1', [], $options),[new \Itechsup\FormFwk\Validator\ValidatorYouShouldNotPass()]);
+$form->addWidget( new Itechsup\FormFwk\Widget\Choice\Impl\WidgetSimpleExpanded('se', 'label2', [], $options));
+$form->addWidget( new Itechsup\FormFwk\Widget\Choice\Impl\WidgetMultipleExpanded('me', 'label3', [], $options));
+$form->addWidget( new Itechsup\FormFwk\Widget\Choice\Impl\WidgetMultiple('m', 'label4', [], $options));
+
 
 if (!empty($_POST)) {
     $form->bind($_POST);
@@ -37,7 +39,16 @@ if (!empty($_POST)) {
     </head>
     <body>
         <div id="wrapper">
-            <?php echo $form->render(); ?>
+            <?php 
+                echo $form->render(); 
+            
+                if (!empty($_POST)) {
+                    echo '<pre>';
+                    print_r($_POST);
+                    echo '</pre>';
+                }
+            ?>
         </div>
-    </body>
+	</body>
 </html>
+

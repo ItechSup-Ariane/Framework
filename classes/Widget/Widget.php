@@ -11,6 +11,7 @@ abstract class Widget
     protected $label = null;
     protected $name = null;
     protected $data = null;
+    protected $errors = [];
     protected $htmlAttributes = array();
 
     public function __construct($name, $label = null, $htmlAttributes = [])
@@ -23,7 +24,38 @@ abstract class Widget
     /**
      * Ovveride this in your custom implementation of the widget base class.
      */
-    abstract public function render();
+    public function render()
+    {
+        $return = $this->renderLabel();
+        $return .= $this->renderWidget();
+        $return .= $this->renderError();
+        return $return;
+    }
+
+    abstract public function renderWidget();
+
+    public function renderError()
+    {
+        var_dump($this->errors);
+        $return= '<span class="warning">'.implode(' ', $this->errors).'</span>';
+        var_dump($return);
+        return $return;
+    }
+
+    /**
+     * Returns a string representation of a label markup for our widget.
+     *
+     * @return string html representation of our widget's label
+     */
+    protected function renderLabel()
+    {
+        $label = '';
+        if ($this->label !== null) {
+            $label = '<label for="'.$this->getId().'">'.$this->label.'</label>';
+        }
+
+        return $label;
+    }
 
     /**
      * Bind your data here !
@@ -46,25 +78,10 @@ abstract class Widget
     {
         $output = '';
         foreach ($this->htmlAttributes as $key => $value) {
-            $output .= $key . '="' . $value . '" ';
+            $output .= $key.'="'.$value.'" ';
         }
 
         return $output;
-    }
-
-    /**
-     * Returns a string representation of a label markup for our widget.
-     *
-     * @return string html representation of our widget's label
-     */
-    protected function renderLabel()
-    {
-        $label = '';
-        if ($this->label !== null) {
-            $label = '<label for="' . $this->getId() . '">' . $this->label . '</label>';
-        }
-
-        return $label;
     }
 
     /**
@@ -89,6 +106,11 @@ abstract class Widget
     public function getName()
     {
         return $this->name;
+    }
+
+    public function setErrors($errors)
+    {
+        $this->errors = $errors;
     }
 
 }
