@@ -18,9 +18,14 @@ class ValidatorComparison extends AbstractValidator
 
     protected $referenceValue;
 
-    public function __construct($message, $referenceValue)
+    public function __construct($message, $referenceValue = null)
     {
         parent::__construct($message);
+        $this->referenceValue = $referenceValue;
+    }
+
+    public function setReferenceValue($referenceValue)
+    {
         $this->referenceValue = $referenceValue;
     }
 
