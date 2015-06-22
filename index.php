@@ -23,6 +23,7 @@ $options = ['les lettres' => ['a' => 'Ma lettre A', 'b' => 'Ma lettre B', 'c' =>
 $WSelectSimple = new Itechsup\FormFwk\Widget\Choice\Impl\WidgetSelectSimple('s', 'label1', [], $options);
 $WText1 = new Itechsup\FormFwk\Widget\WidgetImpl\WidgetText('text1', 'text1', []);
 $WText2 = new Itechsup\FormFwk\Widget\WidgetImpl\WidgetText('text2', 'text2', []);
+$WText3 = new Itechsup\FormFwk\Widget\WidgetImpl\WidgetText('text3', 'text3', []);
 $WSimpleExpanded = new Itechsup\FormFwk\Widget\Choice\Impl\WidgetSimpleExpanded('se', 'label2', [], $options);
 $WMultipleExpanded = new Itechsup\FormFwk\Widget\Choice\Impl\WidgetMultipleExpanded('me', 'label3', [], $options);
 $WMultiple = new Itechsup\FormFwk\Widget\Choice\Impl\WidgetMultiple('m', 'label4', [], $options);
@@ -34,8 +35,9 @@ $form->addWidget($WMultiple);
 
 $form->addWidget($WText1);
 $form->addWidget($WText2);
+$form->addWidget($WText3);
 
-$form->addGroupWidget([$WText1, $WText2], new \Itechsup\FormFwk\Validator\ValidatorGroupWidget\ValidatorTextEqual("c'est pas egal", [$WText1, $WText2]) );
+$form->addGroupWidget([$WText1, $WText2, $WText3], new \Itechsup\FormFwk\Validator\ValidatorGroupWidget\ValidatorTextEqual("c'est pas egal", [$WText1, $WText2, $WText3]) );
 $form->addGroupWidget([$WSelectSimple, $WSimpleExpanded], new \Itechsup\FormFwk\Validator\ValidatorYouShouldNotPass() );
 
 
