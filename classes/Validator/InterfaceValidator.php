@@ -6,18 +6,16 @@
  * and open the template in the editor.
  */
 
-namespace Itechsup\FormFwk\Widget\WidgetImpl;
-
-use Itechsup\FormFwk\Widget\WidgetInput;
+namespace Itechsup\FormFwk\Validator;
 
 /**
- * Description of WidgetRadio
+ * Description of InterfaceValidator
  *
  * @author Thomas
  */
-class WidgetRadio extends WidgetInput
+interface InterfaceValidator
 {
-    
-    protected $type = "radio";
+        
+    public function validate($value);
     
 }
