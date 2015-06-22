@@ -60,7 +60,7 @@ class ValidatorSchema
     private function validate()
     {
         foreach ($this->validators as $widgetName => $validators) {
-            $errorMsg = '';
+            $errorMsg = [];
             foreach ($validators as $validator) {
                 try {
                     $validator->validate($this->data[$widgetName]);
@@ -68,7 +68,7 @@ class ValidatorSchema
                     $errorMsg[] = $validator->getMessage();
                 }
             }
-            $this->errors[$widgetName][] = $errorMsg;
+            $this->widgets[$widgetName]->setErrors($errorMsg);
             $this->hasError = $this->hasError || !empty($errorMsg);
         }
     }
@@ -76,14 +76,14 @@ class ValidatorSchema
     private function validateGroup()
     {
         foreach ($this->validatorsMultiple as $key => $validator) {
-            $errorMsg = '';
+            $errorMsg = [];
             try {
                 $validator->validate($this->widgetMultiple[$key]);
             } catch (ValidatorException $e) {
                 $errorMsg[] = $validator->getMessage();
             }
             foreach ($this->widgetMultiple[$key] as $widget) {
-                $this->errors[$widget->getName()][] = $errorMsg;
+                $widget->setErrors($errorMsg);
                 $this->hasError = $this->hasError || !empty($errorMsg);
             }
         }
