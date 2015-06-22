@@ -38,6 +38,8 @@ class ValidatorSchema
             $widget->bind($this->data[$name]);
         }
         $this->validate();
+        //Appel de la fonction de Validation des collections de widgets
+        $this->validateMultiple();
     }
 
     private function validate()
@@ -55,10 +57,19 @@ class ValidatorSchema
             $this->hasError = $this->hasError || !empty($errorMsg);
         }
     }
-
+    
+    // Doit on passer la collection en argument ?
+    private function validateMultiple()
+    {
+        
+    }
     public function isValid()
     {
         return $this->data !== null && $this->hasError == true;
     }
 
+    public function linkWidget($widgets, $widget)
+    {
+       $widgets[$widget->getName()] = $widget;
+    }    
 }

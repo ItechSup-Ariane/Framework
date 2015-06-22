@@ -112,5 +112,13 @@ abstract class Widget
     {
         $this->errors = $errors;
     }
-
+    
+    /**
+     * Get this Widget's data. Very handy.
+     * @return string this widget's data
+     */
+    public function getData()
+    {
+        return $this->data;
+    }
 }
