@@ -2,7 +2,7 @@
 
 namespace Itechsup\FormFwk\Form;
 
-use Itechsup\FormFwk\Widget\Widget;
+use Itechsup\FormFwk\Form\ValidatorSchema;
 
 /**
  * This nice class offers an OO interface for an HTML Form. Enjoy!
@@ -10,20 +10,11 @@ use Itechsup\FormFwk\Widget\Widget;
 class Form
 {
 
-    /**
-     * Widget holder
-     */
-    private $widgets = [];
+    private $schema;
 
-    /**
-     * Adds a Widget to our beloved Form.
-     *
-     * @param Widget $widget the Widget to add
-     * @return void
-     */
-    public function addWidget(Widget $widget)
+    public function __construct()
     {
-        $this->widgets[$widget->getName()] = $widget;
+        $this->schema = new ValidatorSchema();
     }
 
     /**
@@ -34,7 +25,7 @@ class Form
     public function render()
     {
         $output = $this->renderFormStart();
-        foreach ($this->widgets as $widget) {
+        foreach ($this->schema->getWidgets() as $widget) {
             $output .= $widget->render();
         }
         $output .= $this->renderFormEnd();
@@ -50,9 +41,7 @@ class Form
      */
     public function bind($data)
     {
-        foreach ($this->widgets as $name => $widget) {
-            $widget->bind($data[$name]);
-        }
+        $this->schema->bind($data);
     }
 
     /**
@@ -73,6 +62,16 @@ class Form
     private function renderFormEnd()
     {
         return '<input type="submit" value="Soumet moi !" /></form>';
+    }
+
+    public function addWidget($widget, array $validators = [])
+    {
+        $this->schema->addWidget($widget, $validators);
+    }
+
+    public function isValid()
+    {
+        return $this->schema->isValid();
     }
 
 }
