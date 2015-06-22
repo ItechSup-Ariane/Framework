@@ -83,7 +83,7 @@ class ValidatorSchema
                 $errorMsg[] = $validator->getMessage();
             }
             foreach ($this->widgetMultiple[$key] as $widget) {
-                $widget->setErrors($errorMsg);
+                $widget->addErrors($errorMsg);
                 $this->hasError = $this->hasError || !empty($errorMsg);
             }
         }
