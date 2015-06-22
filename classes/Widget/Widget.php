@@ -36,9 +36,7 @@ abstract class Widget
 
     public function renderError()
     {
-        var_dump($this->errors);
         $return= '<span class="warning">'.implode(' ', $this->errors).'</span>';
-        var_dump($return);
         return $return;
     }
 
@@ -107,10 +105,18 @@ abstract class Widget
     {
         return $this->name;
     }
+    
+     public function getData() {
+        return $this->data;
+    }
 
+    public function addErrors($errors)
+    {
+        $this->errors = array_merge($this->errors, $errors);
+    }
+    
     public function setErrors($errors)
     {
         $this->errors = $errors;
     }
-
 }
