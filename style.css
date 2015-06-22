@@ -60,7 +60,6 @@ input[type="reset"]{
     width: 100%;
     float: left;
 }
-
 .warning{
     display : block;
     color : red;
