@@ -12,4 +12,9 @@ class WidgetText extends WidgetInput
 
     protected $type = 'text';
 
+    public function getText()
+    {
+        return $data;
+    }
+
 }
