@@ -7,7 +7,7 @@
  */
 namespace Itechsup\FormFwk\Validator;
 
-use Itechsup\FormFwk\Validator\ValidatorMultipleValue;
+use Itechsup\FormFwk\Validator\AbstractValidator;
 use Itechsup\FormFwk\Exception\ValidatorException;
 
 /**
@@ -15,9 +15,9 @@ use Itechsup\FormFwk\Exception\ValidatorException;
  *
  * @author nathan
  */
-class ValidatorAdresse extends ValidatorMultipleValue
+class ValidatorAdresse extends AbstractValidator
 {
-    public function validate($widgets)
+    public function validate($values)
     {
         
     }

@@ -7,33 +7,26 @@
  */
 namespace Itechsup\FormFwk\Validator;
 
-use Itechsup\FormFwk\Validator\ValidatorMultipleValue;
+use Itechsup\FormFwk\Validator\AbstractValidator;
 use Itechsup\FormFwk\Exception\ValidatorException;
 /**
  * Class abstract ValidatorPassword verifie l'égalité de deux password
  *
  * @author nathan
  */
-abstract class ValidatorPassword extends ValidatorMultipleValue
+abstract class ValidatorEqualAll extends AbstractValidator
 {
     /**
     * Function validate permettant la comparaison de deux mots de passe
     * @param array widgets collection de widgets a comparer
     */
-    public function validate($widgets)
+    public function validate($values)
     {
-        $pwd1 = "";
-        $pwd2 = "";
-        //Doit-on parcourir le tableau ou simplement séléctionner l'index 1 & 2?
-        Foreach ($widgets as $widget) {
-            if ($pwd1 != "") {
-                $pwd1 = $widget->getData();
-            } else {
-                $pwd2 = $widget->getData();
+        $ref = array_shift($values);
+        foreach ($values as $value){
+            if ($value != $ref) {
+                throw new ValidatorException($this->getMessage());
             }
-        }
-        if ($pwd1 != $pwd2) {
-            throw new ValidatorException($this->getMessage());
         }
     }
 }

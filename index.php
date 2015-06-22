@@ -26,6 +26,7 @@ $form->addWidget( new Itechsup\FormFwk\Widget\Choice\Impl\WidgetMultipleExpanded
 $form->addWidget( new Itechsup\FormFwk\Widget\Choice\Impl\WidgetMultiple('m', 'label4', [], $options));
 
 
+
 if (!empty($_POST)) {
     $form->bind($_POST);
 }

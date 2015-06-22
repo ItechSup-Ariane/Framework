@@ -19,6 +19,7 @@ class ValidatorSchema
     private $validators = [];
     private $hasError = false;
     private $data = null;
+    private $collectionsWidgets = [];
 
     public function addWidget($widget, array $validators = [])
     {
@@ -31,6 +32,11 @@ class ValidatorSchema
         return $this->widgets;
     }
 
+    public function getCollections()
+    {
+        return $this->collectionsWidgets;
+    }
+    
     public function bind($data = [])
     {
         $this->data = $data;
@@ -61,15 +67,24 @@ class ValidatorSchema
     // Doit on passer la collection en argument ?
     private function validateMultiple()
     {
-        
+        $this->collectionsWidgets = getCollectionsWidgets();
+        foreach ($this->collectionsWidgets as $collectionWidget) {
+            $errorMsg = [];
+            $values = [];
+            foreach($collectionWidget as $widget) {
+                $values[$widget->getName()] = $widget->getData();
+            }
+            try {
+                $validator->validate($values);
+            } catch (ValidatorException $e) {
+                $errorMsg[] = $validator->getMessage();
+            }
+            $this->collectionsWidgets[$collectionWidget->getName()]->setErrors($errorMsg);
+            $this->hasError = $this->hasError || !empty($errorMsg);
+        }
     }
     public function isValid()
     {
         return $this->data !== null && $this->hasError == true;
     }
-
-    public function linkWidget($widgets, $widget)
-    {
-       $widgets[$widget->getName()] = $widget;
-    }    
 }

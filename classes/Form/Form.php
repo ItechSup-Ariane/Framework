@@ -28,6 +28,9 @@ class Form
         foreach ($this->schema->getWidgets() as $widget) {
             $output .= $widget->render();
         }
+        foreach ($this->schema->getCollections() as $collection) {
+            $output .= $collection->render();
+        }
         $output .= $this->renderFormEnd();
 
         return $output;
