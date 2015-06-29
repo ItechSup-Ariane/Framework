@@ -1,5 +1,6 @@
 body{
-    background: url("piou_piou_laser.jpg") no-repeat top fixed;
+    /*background: url("piou_piou_laser.jpg") no-repeat top fixed;*/
+    background: url("http://www.pageresource.com/wallpapers/wallpaper/dolphin-moon-night-stars-free-moonlight-leap-blue_356141.jpg") no-repeat fixed center top  / 100% 100%;;
     font-family: "Indie Flower",cursive;
     color: white;
 }

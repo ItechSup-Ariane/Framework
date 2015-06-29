@@ -70,6 +70,8 @@ if (!empty($_POST)) {
                 // $renderOptions = new Itechsup\FormFwk\Renderer\TableRenderer();
                 // $renderOptions = new Itechsup\FormFwk\Renderer\DivRenderer();
                 $renderOptions = new Itechsup\FormFwk\Renderer\ListRenderer();
+                // En cours de réflexion...
+                // $renderOptions = RendererFactory::load("Div");
                 echo $form->render($renderOptions); 
             
                 // Si des données ont été envoyées, on les affiche
