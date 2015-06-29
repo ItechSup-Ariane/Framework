@@ -28,6 +28,7 @@ class ValidatorSchema
         $this->widgets[$widget->getName()] = $widget;
         $this->validators[$widget->getName()] = $validators;
     }
+
     
     public function addGroupWidget(array $widgets = [], $validator)
     {
@@ -41,6 +42,7 @@ class ValidatorSchema
         $keys = array_keys($this->widgetMultiple);
         return count($keys);
     }
+
 
     public function getWidgets()
     {
@@ -88,7 +90,6 @@ class ValidatorSchema
             }
         }
     }
-    
 
     public function isValid()
     {
