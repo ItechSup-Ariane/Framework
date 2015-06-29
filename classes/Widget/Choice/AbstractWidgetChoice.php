@@ -12,9 +12,7 @@ use Itechsup\FormFwk\Widget\Widget;
  */
 abstract class AbstractWidgetChoice extends Widget
 {
-	
-
-    protected $options = [];
+	protected $options = [];
 
     /**
      * alas, you won't instanciate this class, because it is abstract. But its __construct is quite nice.

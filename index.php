@@ -46,10 +46,6 @@ $form->addWidget($WText1, [new \Itechsup\FormFwk\Validator\ValidatorSpecialChars
 $form->addWidget($WText2);
 $form->addWidget($WText3);
 
-
-$form->addGroupWidget([$WSelectSimple, $WSimpleExpanded], new \Itechsup\FormFwk\Validator\ValidatorYouShouldNotPass() );
-
-
 // On crée des groupes de widgets et leurs validateurs
 $form->addGroupWidget([$WText1, $WText2, $WText3], new \Itechsup\FormFwk\Validator\ValidatorGroupWidget\ValidatorTextEqual("Ce n'est pas égal...", [$WText1, $WText2, $WText3]) );
 $form->addGroupWidget([$WSelectSimple, $WSimpleExpanded], new \Itechsup\FormFwk\Validator\ValidatorYouShouldNotPass() );
