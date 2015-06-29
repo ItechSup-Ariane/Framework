@@ -44,7 +44,7 @@ if (!empty($_POST)) {
     <body>
         <div id="wrapper">
             <?php
-            echo $form->render();
+            echo $form->render(new Itechsup\FormFwk\Render\ImplRender\RenderTable());
 
             if (!empty($_POST)) {
                 echo '<pre>';

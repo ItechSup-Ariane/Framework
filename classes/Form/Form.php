@@ -3,17 +3,16 @@
 namespace Itechsup\FormFwk\Form;
 
 use Itechsup\FormFwk\Form\ValidatorSchema;
+use Itechsup\FormFwk\Render\Render;
 
 /**
  * This nice class offers an OO interface for an HTML Form. Enjoy!
  */
-class Form
-{
+class Form {
 
     private $schema;
 
-    public function __construct()
-    {
+    public function __construct() {
         $this->schema = new ValidatorSchema();
     }
 
@@ -22,14 +21,17 @@ class Form
      *
      * @return string a nice html string
      */
-    public function render()
-    {
+    public function render(Render $render = null) {
         $output = $this->renderFormStart();
-        foreach ($this->schema->getWidgets() as $widget) {
-            $output .= $widget->render();
+        if (empty($render)) {
+            foreach ($this->schema->getWidgets() as $widget) {
+                $output .= $widget->render();
+            }
+        } else {
+            $render->addListWidgets($this->schema->getWidgets());
+            $output .= $render->render();
         }
         $output .= $this->renderFormEnd();
-
         return $output;
     }
 
@@ -39,8 +41,7 @@ class Form
      * @param array $data data to bind the form with
      * @return void
      */
-    public function bind($data)
-    {
+    public function bind($data) {
         $this->schema->bind($data);
     }
 
@@ -49,8 +50,7 @@ class Form
      *
      * @return string
      */
-    private function renderFormStart()
-    {
+    private function renderFormStart() {
         return '<form method="POST" action="">';
     }
 
@@ -59,28 +59,23 @@ class Form
      *
      * @return string
      */
-    private function renderFormEnd()
-    {
+    private function renderFormEnd() {
         return '<input type="submit" value="Soumet moi !" /></form>';
     }
 
-    public function addWidget($widget, array $validators = [])
-    {
+    public function addWidget($widget, array $validators = []) {
         $this->schema->addWidget($widget, $validators);
     }
 
-    public function isValid()
-    {
+    public function isValid() {
         return $this->schema->isValid();
     }
 
-    public function addGroupValidator($nameGroupValidator, array $groupValidator)
-    {
+    public function addGroupValidator($nameGroupValidator, array $groupValidator) {
         $this->schema->addGroupValidator($nameGroupValidator, $groupValidator);
     }
 
-    public function bindGroupValidator($nameGroupValidator, array $nameWidget)
-    {
+    public function bindGroupValidator($nameGroupValidator, array $nameWidget) {
         $this->schema->bindGroupValidator($nameGroupValidator, $nameWidget);
     }
 

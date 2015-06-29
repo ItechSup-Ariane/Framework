@@ -5,8 +5,7 @@ namespace Itechsup\FormFwk\Widget;
 /**
  * Nice OO interface for our Form Widgets.
  */
-abstract class Widget
-{
+abstract class Widget {
 
     protected $label = null;
     protected $name = null;
@@ -14,8 +13,7 @@ abstract class Widget
     protected $errors = [];
     protected $htmlAttributes = array();
 
-    public function __construct($name, $label = null, $htmlAttributes = [])
-    {
+    public function __construct($name, $label = null, $htmlAttributes = []) {
         $this->name = $name;
         $this->label = $label;
         $this->htmlAttributes = $htmlAttributes;
@@ -24,8 +22,7 @@ abstract class Widget
     /**
      * Ovveride this in your custom implementation of the widget base class.
      */
-    public function render()
-    {
+    public function render() {
         $return = $this->renderLabel();
         $return .= $this->renderWidget();
         $return .= $this->renderError();
@@ -34,11 +31,8 @@ abstract class Widget
 
     abstract public function renderWidget();
 
-    public function renderError()
-    {
-        var_dump($this->errors);
-        $return= '<span class="warning">'.implode(' ', $this->errors).'</span>';
-        var_dump($return);
+    public function renderError() {
+        $return = '<span class="warning">' . implode(' ', $this->errors) . '</span>';
         return $return;
     }
 
@@ -47,11 +41,10 @@ abstract class Widget
      *
      * @return string html representation of our widget's label
      */
-    protected function renderLabel()
-    {
+    protected function renderLabel() {
         $label = '';
         if ($this->label !== null) {
-            $label = '<label for="'.$this->getId().'">'.$this->label.'</label>';
+            $label = '<label for="' . $this->getId() . '">' . $this->label . '</label>';
         }
 
         return $label;
@@ -64,8 +57,7 @@ abstract class Widget
      *
      * @return void
      */
-    public function bind($data)
-    {
+    public function bind($data) {
         $this->data = $data;
     }
 
@@ -74,11 +66,10 @@ abstract class Widget
      *
      * @return string textual representtaion of html attributes
      */
-    protected function renderHtmlAttributes()
-    {
+    protected function renderHtmlAttributes() {
         $output = '';
         foreach ($this->htmlAttributes as $key => $value) {
-            $output .= $key.'="'.$value.'" ';
+            $output .= $key . '="' . $value . '" ';
         }
 
         return $output;
@@ -87,8 +78,7 @@ abstract class Widget
     /**
      * Returns an html id for our widget.
      */
-    protected function getId()
-    {
+    protected function getId() {
         // We first look for an id provided by the user
         if (array_key_exists('id', $this->htmlAttributes)) {
             return $this->htmlAttributes['id'];
@@ -103,13 +93,11 @@ abstract class Widget
      *
      * @return string this widget'ws name
      */
-    public function getName()
-    {
+    public function getName() {
         return $this->name;
     }
 
-    public function setErrors($errors)
-    {
+    public function setErrors($errors) {
         $this->errors = $errors;
     }
 
