@@ -17,11 +17,8 @@ class ValidatorSchema
      */
     private $widgets = [];
     private $validators = [];
-<<<<<<< HEAD
-=======
     private $groupValidators = [];
     private $bindGroupValidWidget = [];
->>>>>>> origin/PFU
     private $hasError = false;
     private $data = null;
 
@@ -59,8 +56,6 @@ class ValidatorSchema
             $this->widgets[$widgetName]->setErrors($errorMsg);
             $this->hasError = $this->hasError || !empty($errorMsg);
         }
-<<<<<<< HEAD
-=======
         foreach ($this->groupValidators as $nameGroupValidator => $groupValidator) {
             $dataFirstWidget = $this->data[current($this->bindGroupValidWidget[$nameGroupValidator])];
             foreach ($groupValidator as $validator) {
@@ -91,16 +86,13 @@ class ValidatorSchema
         }
         $this->widgets[$widgetName]->setErrors($errorMsg);
         $this->hasError = $this->hasError || !empty($errorMsg);
->>>>>>> origin/PFU
     }
 
     public function isValid()
     {
         return $this->data !== null && $this->hasError == true;
     }
-
-<<<<<<< HEAD
-=======
+    
     public function addGroupValidator($nameGroupValidator, array $groupValidator)
     {
         $this->groupValidators[$nameGroupValidator] = $groupValidator;
@@ -111,5 +103,4 @@ class ValidatorSchema
         $this->bindGroupValidWidget[$nameGroupValidator] = $nameWidget;
     }
 
->>>>>>> origin/PFU
 }

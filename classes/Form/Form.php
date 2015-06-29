@@ -74,8 +74,6 @@ class Form
         return $this->schema->isValid();
     }
 
-<<<<<<< HEAD
-=======
     public function addGroupValidator($nameGroupValidator, array $groupValidator)
     {
         $this->schema->addGroupValidator($nameGroupValidator, $groupValidator);
@@ -86,5 +84,4 @@ class Form
         $this->schema->bindGroupValidator($nameGroupValidator, $nameWidget);
     }
 
->>>>>>> origin/PFU
 }
