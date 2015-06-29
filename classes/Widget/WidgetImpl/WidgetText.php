@@ -11,5 +11,5 @@ class WidgetText extends WidgetInput
 {
 
     protected $type = 'text';
-
+    
 }
