@@ -3,6 +3,7 @@
 namespace Itechsup\FormFwk\Form;
 
 use Itechsup\FormFwk\Form\ValidatorSchema;
+use Itechsup\FormFwk\Renderer\FormRendererFactory as RendererFactory;
 
 /**
  * This nice class offers an OO interface for an HTML Form. Enjoy!
@@ -20,15 +21,27 @@ class Form
     /**
      * Output a nice HTML string for our beloved form.
      *
+     * @param $layout string
+     *  The name of the HTML layout type to render the form.
+     * @see Itechsup\FormFwk\Form\Renderer\FormRendererFactory
+     *
      * @return string a nice html string
      */
-    public function render()
+    public function render($layout)
     {
-        $output = $this->renderFormStart();
-        foreach ($this->schema->getWidgets() as $widget) {
-            $output .= $widget->render();
+        try {
+            $renderer = RendererFactory::getRenderer($layout);
+        } catch (\InvalidArgumentException $e) {
+            return $e->getMessage();
         }
-        $output .= $this->renderFormEnd();
+
+        $output = $renderer->renderFormStart($this->renderFormStart());
+        foreach ($this->schema->getWidgets() as $widget) {
+            $output .= $renderer->renderWidgetLabel($widget->renderLabel());
+            $output .= $renderer->renderWidgetWidget($widget->renderWidget());
+            $output .= $renderer->renderWidgetErrors($widget->renderError());
+        }
+        $output .= $renderer->renderFormEnd($this->renderFormEnd());
 
         return $output;
     }
@@ -49,7 +62,7 @@ class Form
      *
      * @return string
      */
-    public function renderFormStart()
+    private function renderFormStart()
     {
         return '<form method="POST" action="">';
     }
@@ -59,7 +72,7 @@ class Form
      *
      * @return string
      */
-    public function renderFormEnd()
+    private function renderFormEnd()
     {
         return '<input type="submit" value="Soumet moi !" /></form>';
     }
