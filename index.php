@@ -68,8 +68,8 @@ if (!empty($_POST)) {
             
                 // On affiche le formulaire
                 $renderOptions = new Itechsup\FormFwk\Renderer\TableRenderer();
-                // $renderOptions = new Itechsup\FormFwk\Renderer\DivRenderer();
-                // $renderOptions = new Itechsup\FormFwk\Renderer\ListRenderer();
+                //$renderOptions = new Itechsup\FormFwk\Renderer\DivRenderer();
+                //$renderOptions = new Itechsup\FormFwk\Renderer\ListRenderer();
                 echo $form->render($renderOptions); 
             
                 // Si des données ont été envoyées, on les affiche

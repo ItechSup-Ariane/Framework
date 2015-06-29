@@ -25,7 +25,7 @@ class Form
     public function render(IRenderer $renderer)
     {   
         
-        $output .= $this->renderFormStart();        
+        $output = $this->renderFormStart();        
         $output .= $this->renderContent($renderer);        
         $output .= $this->renderFormEnd();
 
