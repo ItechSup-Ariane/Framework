@@ -23,6 +23,10 @@ class ValidatorSchema
         $this->widgets[$widget->getName()] = $widget;
         $this->validators[$widget->getName()] = $validators;
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
     
     public function addGroupWidget(array $widgets = [], $validator)
     {
@@ -36,6 +40,11 @@ class ValidatorSchema
         $keys = array_keys($this->widgetMultiple);
         return count($keys);
     }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> origin/master
     public function getWidgets()
     {
         return $this->widgets;
@@ -80,6 +89,10 @@ class ValidatorSchema
             }
         }
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
     public function isValid()
     {
         return $this->data !== null && $this->hasError == true;
