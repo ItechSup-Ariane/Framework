@@ -67,8 +67,8 @@ if (!empty($_POST)) {
             <?php 
             
                 // On affiche le formulaire
-                // $renderOptions = new Itechsup\FormFwk\Factory\TableRenderer();
-                $renderOptions = new Itechsup\FormFwk\Factory\DivRenderer();
+                $renderOptions = new Itechsup\FormFwk\Factory\TableRenderer();
+                // $renderOptions = new Itechsup\FormFwk\Factory\DivRenderer();
                 // $renderOptions = new Itechsup\FormFwk\Factory\ListRenderer();
                 echo $form->render($renderOptions); 
             
