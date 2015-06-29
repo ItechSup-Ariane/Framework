@@ -14,19 +14,25 @@ namespace Itechsup\FormFwk\Renderer;
  */
 class tableRender implements InterfaceRenderer
 {
-    //put your code here
-    protected $htmlDeb="<table>";
-    protected $htmlFin="</table>";
-    
-    public function getHtmlDeb()
-    {
-        return $this->htmlDeb;
+      public function renderContentStart()
+    {       
+        $output = '<table border="1" style="width : 100%">';
+        return $output;
     }
-
-    public function getHtmlFin()
+    public function renderContentEnd()
     {
-        return $this->htmlFin;
+        $output = '</table>';
+        return $output;
     }
-
+    public function renderContentWidgetStart()
+    {
+        $output = '<tr><td>';
+        return $output;
+    }
+    public function renderContentWidgetEnd()
+    {
+        $output = '</td></tr>';
+        return $output;
+    }
 
 }

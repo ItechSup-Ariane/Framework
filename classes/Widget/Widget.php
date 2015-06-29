@@ -108,9 +108,8 @@ abstract class Widget
     {
         return $this->name;
     }
-
-    public function getData()
-    {
+    
+     public function getData() {
         return $this->data;
     }
 
@@ -118,10 +117,9 @@ abstract class Widget
     {
         $this->errors = array_merge($this->errors, $errors);
     }
-
+    
     public function setErrors($errors)
     {
         $this->errors = $errors;
     }
-
 }

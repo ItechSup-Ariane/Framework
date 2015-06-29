@@ -28,12 +28,17 @@ class ValidatorTextEqual extends AbstractValidator implements InterfaceValidator
         foreach ($this->widgets as $w) {
             if ($value == null) {
                 $value = $w->getData();
-            } else {
-                if ($value != $w->getData()) {
-                    throw new ValidatorException($this->getMessage());
+                foreach ($this->widgets as $w) {
+                    if ($value == null) {
+                        $value = $w->getData();
+                    } else {
+                        if ($value != $w->getData()) {
+                            throw new ValidatorException($this->getMessage());
+                        }
+                    }
                 }
             }
         }
     }
-
 }
+    

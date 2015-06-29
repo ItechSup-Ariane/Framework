@@ -14,18 +14,24 @@ namespace Itechsup\FormFwk\Renderer;
  */
 class ulRender implements InterfaceRenderer
 {
-
-    //put your code here
-    protected $htmlDeb="<ul>";
-    protected $htmlFin="</ul>";
-
-    public function getHtmlDeb()
-    {
-        return $this->htmlDeb;
+     public function renderContentStart()
+    {       
+        $output = '<ul>';
+        return $output;
     }
-
-    public function getHtmlFin()
+    public function renderContentEnd()
     {
-        return $this->htmlFin;
+        $output = '</ul>';
+        return $output;
+    }
+    public function renderContentWidgetStart()
+    {
+        $output = '<li>';
+        return $output;
+    }
+    public function renderContentWidgetEnd()
+    {
+        $output = '</li>';
+        return $output;
     }
 }

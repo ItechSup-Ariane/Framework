@@ -10,7 +10,6 @@ use Itechsup\FormFwk\Renderer\InterfaceRenderer;
  */
 class Form
 {
-
     private $schema;
 
     public function __construct()
@@ -31,16 +30,21 @@ class Form
 
         return $output;
     }
-    public function renderContent($renderer){
+    
+    public function renderContent($renderer)
+    {        
+        $output = $renderer->renderContentStart();
         
-        $output = $renderer->getHtmlDeb;
         foreach ($this->schema->getWidgets() as $widget) {
             
-            $output .= $renderer->getHtmlDeb;
+            $output .= $renderer->renderContentWidgetStart();
             $output .= $widget->render();            
-            $output .= $renderer->getHtmlDeb;
+            $output .= $renderer->renderContentWidgetEnd();
         }
-        $output .= $renderer->getHtmlFin;
+        
+        $output .= $renderer->renderContentEnd();
+        
+        return $output;
     }
     /**
      * Binds user data to the form.

@@ -14,8 +14,13 @@ namespace Itechsup\FormFwk\Renderer;
 interface InterfaceRenderer
 {
        
-    public function getHtmlDeb();
-   
-    public function getHtmlFin();
+     public function renderContentStart();
+    
+    public function renderContentEnd();
+    
+    public function renderContentWidgetStart();
+    
+    public function renderContentWidgetEnd();
+    
    
 }

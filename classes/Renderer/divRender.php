@@ -15,17 +15,25 @@ namespace Itechsup\FormFwk\Renderer;
 class divRender implements InterfaceRenderer
 {
 
-    //put your code here
-    protected $htmlDeb="<div>";
-    protected $htmlFin="</div>";
-
-    public function getHtmlDeb()
-    {
-        return $this->htmlDeb;
+    
+    public function renderContentStart()
+    {       
+        $output = '';
+        return $output;
     }
-
-    public function getHtmlFin()
+    public function renderContentEnd()
     {
-        return $this->htmlFin;
+        $output = '';
+        return $output;
     }
+    public function renderContentWidgetStart()
+    {
+        $output = '<div>';
+        return $output;
+    }
+    public function renderContentWidgetEnd()
+    {
+        $output = '</div>';
+        return $output;
+    }    
 }
