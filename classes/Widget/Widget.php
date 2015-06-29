@@ -36,9 +36,15 @@ abstract class Widget
 
     public function renderError()
     {
+<<<<<<< HEAD
        // var_dump($this->errors);
         $return= '<span class="warning">'.implode(' ', $this->errors).'</span>';
        // var_dump($return);
+=======
+        var_dump($this->errors);
+        $return= '<span class="warning">'.implode(' ', $this->errors).'</span>';
+        var_dump($return);
+>>>>>>> origin/PFU
         return $return;
     }
 

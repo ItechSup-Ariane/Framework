@@ -12,7 +12,11 @@ h1 {
 .asterix{
     color: magenta;
 }
+<<<<<<< HEAD
 form, #resultat, pre {
+=======
+form, #resultat {
+>>>>>>> origin/PFU
     padding: 10px;
     width: auto;
     background-color: rgba(75, 195, 215, 0.75);
@@ -47,6 +51,10 @@ input[type="checkbox"],
 input[type="radio"]{
     width:10px;
     margin-left: 0;
+<<<<<<< HEAD
+=======
+    display: block;
+>>>>>>> origin/PFU
 }
 input[type="submit"],
 input[type="reset"]{

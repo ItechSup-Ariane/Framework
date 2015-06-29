@@ -74,4 +74,17 @@ class Form
         return $this->schema->isValid();
     }
 
+<<<<<<< HEAD
+=======
+    public function addGroupValidator($nameGroupValidator, array $groupValidator)
+    {
+        $this->schema->addGroupValidator($nameGroupValidator, $groupValidator);
+    }
+
+    public function bindGroupValidator($nameGroupValidator, array $nameWidget)
+    {
+        $this->schema->bindGroupValidator($nameGroupValidator, $nameWidget);
+    }
+
+>>>>>>> origin/PFU
 }

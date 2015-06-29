@@ -9,4 +9,8 @@ class WidgetCheckbox extends WidgetInput
     
     protected $type = "checkbox";
     
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/PFU

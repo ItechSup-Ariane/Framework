@@ -26,4 +26,8 @@ class WidgetMultipleExpanded extends AbstractWidgetChoiceExpanded
         return $output;
     }
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/PFU
