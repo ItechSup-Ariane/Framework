@@ -29,20 +29,19 @@ class ValidatorSchema
         $this->validators[$widget->getName()] = $validators;
     }
 
-    
     public function addGroupWidget(array $widgets = [], $validator)
     {
         $newKey = $this->createKeys();
         $this->widgetMultiple[$newKey] = $widgets;
         $this->validatorsMultiple[$newKey] = $validator;
     }
-    
+
     private function createKeys()
     {
         $keys = array_keys($this->widgetMultiple);
         return count($keys);
     }
-    
+
     public function getWidgets()
     {
         return $this->widgets;
@@ -52,7 +51,10 @@ class ValidatorSchema
     {
         $this->data = $data;
         foreach ($this->getWidgets() as $name => $widget) {
-            $widget->bind($this->data[$name]);
+            if (!empty($this->data[$name])) {
+                $widget->bind($this->data[$name]);
+            }
+            // $widget->bind($this->data[$name]);
         }
         $this->validate();
         $this->validateGroup();
@@ -73,7 +75,7 @@ class ValidatorSchema
             $this->hasError = $this->hasError || !empty($errorMsg);
         }
     }
-    
+
     private function validateGroup()
     {
         foreach ($this->validatorsMultiple as $key => $validator) {
@@ -84,7 +86,7 @@ class ValidatorSchema
                 $errorMsg[] = $validator->getMessage();
             }
             foreach ($this->widgetMultiple[$key] as $widget) {
-                $widget->setErrors($errorMsg);
+                $widget->addErrors($errorMsg);
                 $this->hasError = $this->hasError || !empty($errorMsg);
             }
         }
@@ -94,7 +96,7 @@ class ValidatorSchema
     {
         return $this->data !== null && $this->hasError == true;
     }
-    
+
     public function addGroupValidator($nameGroupValidator, array $groupValidator)
     {
         $this->groupValidators[$nameGroupValidator] = $groupValidator;

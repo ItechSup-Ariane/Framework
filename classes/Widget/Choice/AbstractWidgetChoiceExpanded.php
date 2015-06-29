@@ -15,8 +15,9 @@ use Itechsup\FormFwk\Widget\Choice\AbstractWidgetChoice;
  *
  * @author Thomas
  */
-abstract class AbstractWidgetChoiceExpanded extends AbstractWidgetChoice{
-    
+abstract class AbstractWidgetChoiceExpanded extends AbstractWidgetChoice
+{
+
     /**
      * render function
      * @return string containing the html code to generate the group of radioboxes
@@ -24,15 +25,15 @@ abstract class AbstractWidgetChoiceExpanded extends AbstractWidgetChoice{
     public function renderWidget()
     {
         $output = '';
-        foreach($this->options as $valueRadio => $labelRadio){
+        foreach ($this->options as $valueRadio => $labelRadio) {
             // Array case
-            if(is_array($labelRadio)){
+            if (is_array($labelRadio)) {
                 // Redefine value for Group
                 $legendGroupRadio = $valueRadio;
                 $arrayGroupRadio = $labelRadio;
                 // Generate HTML for Group
-                $output .= '<fieldset><legend>'.$legendGroupRadio.'</legend>';
-                foreach($arrayGroupRadio as $valueGroup => $labelGroup){
+                $output .= '<fieldset><legend>' . $legendGroupRadio . '</legend>';
+                foreach ($arrayGroupRadio as $valueGroup => $labelGroup) {
                     $output .= $this->renderOptions($valueGroup, $labelGroup);
                 }
                 $output .= '</fieldset>';
@@ -42,4 +43,5 @@ abstract class AbstractWidgetChoiceExpanded extends AbstractWidgetChoice{
         }
         return $output;
     }
+
 }

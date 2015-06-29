@@ -28,4 +28,5 @@ class ValidatorComparison extends AbstractValidator
     {
         $this->referenceValue = $referenceValue;
     }
+
 }

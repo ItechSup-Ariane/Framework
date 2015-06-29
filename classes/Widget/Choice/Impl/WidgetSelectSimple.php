@@ -1,7 +1,9 @@
 <?php
+
 namespace Itechsup\FormFwk\Widget\Choice\Impl;
 
 use Itechsup\FormFwk\Widget\Choice\AbstractWidgetSelect;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -15,5 +17,5 @@ use Itechsup\FormFwk\Widget\Choice\AbstractWidgetSelect;
  */
 class WidgetSelectSimple extends AbstractWidgetSelect
 {
-
+    
 }

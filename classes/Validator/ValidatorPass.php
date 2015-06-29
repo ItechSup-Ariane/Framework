@@ -13,8 +13,10 @@
  */
 class ValidatorPass
 {
+
     public function validate($str)
     {
         // do nothing
     }
+
 }

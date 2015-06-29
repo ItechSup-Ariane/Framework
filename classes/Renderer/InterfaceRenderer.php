@@ -6,15 +6,16 @@
  * and open the template in the editor.
  */
 
-namespace Itechsup\FormFwk\Validator;
-
+namespace Itechsup\FormFwk\Renderer;
 /**
- * Description of InterfaceValidator
  *
- * @author Thomas
+ * @author Corentin
  */
-interface InterfaceValidator
+interface InterfaceRenderer
 {
-
-    public function validate($value);
+       
+    public function getHtmlDeb();
+   
+    public function getHtmlFin();
+   
 }

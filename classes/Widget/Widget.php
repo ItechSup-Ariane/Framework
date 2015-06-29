@@ -39,7 +39,7 @@ abstract class Widget
         //var_dump($this->errors);
         //var_dump($return);
 
-        $return= '<span class="warning">'.implode(' ', $this->errors).'</span>';
+        $return = '<span class="warning">' . implode(' ', $this->errors) . '</span>';
         return $return;
     }
 
@@ -52,7 +52,7 @@ abstract class Widget
     {
         $label = '';
         if ($this->label !== null) {
-            $label = '<label for="'.$this->getId().'">'.$this->label.'</label>';
+            $label = '<label for="' . $this->getId() . '">' . $this->label . '</label>';
         }
 
         return $label;
@@ -79,7 +79,7 @@ abstract class Widget
     {
         $output = '';
         foreach ($this->htmlAttributes as $key => $value) {
-            $output .= $key.'="'.$value.'" ';
+            $output .= $key . '="' . $value . '" ';
         }
 
         return $output;
@@ -107,6 +107,16 @@ abstract class Widget
     public function getName()
     {
         return $this->name;
+    }
+
+    public function getData()
+    {
+        return $this->data;
+    }
+
+    public function addErrors($errors)
+    {
+        $this->errors = array_merge($this->errors, $errors);
     }
 
     public function setErrors($errors)
