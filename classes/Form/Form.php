@@ -68,6 +68,11 @@ class Form
     {
         $this->schema->addWidget($widget, $validators);
     }
+    
+    public function addGroupWidget(array $widgets = [], $validator)
+    {
+        $this->schema->addGroupWidget($widgets, $validator);
+    }
 
     public function isValid()
     {

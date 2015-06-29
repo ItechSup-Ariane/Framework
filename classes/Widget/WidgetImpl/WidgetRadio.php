@@ -17,7 +17,7 @@ use Itechsup\FormFwk\Widget\WidgetInput;
  */
 class WidgetRadio extends WidgetInput
 {
-    
+
     protected $type = "radio";
-    
+
 }
