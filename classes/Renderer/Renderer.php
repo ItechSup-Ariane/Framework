@@ -1,19 +1,14 @@
 <?php
 
-namespace Itechsup\FormFwk\Factory;
+namespace Itechsup\FormFwk\Renderer;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /**
- * Description of Factory
+ * Description of Renderer
  *
  * @author Maxime
  */
-abstract class Factory
+abstract class Renderer
 {
     private $htmlAttributes = [];
     

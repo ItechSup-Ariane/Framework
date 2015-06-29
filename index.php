@@ -41,7 +41,7 @@ $form->addGroupWidget([$WText1, $WText2, $WText3], new \Itechsup\FormFwk\Validat
 $form->addGroupWidget([$WSelectSimple, $WSimpleExpanded], new \Itechsup\FormFwk\Validator\ValidatorYouShouldNotPass());
 
 $htmlAttributes['name'] = 'test';
-$factory = new Itechsup\FormFwk\Factory\TableFactory($htmlAttributes);
+$renderer = new Itechsup\FormFwk\Renderer\DivRenderer($htmlAttributes);
 
 if (!empty($_POST)) {
     $form->bind($_POST);
@@ -57,7 +57,7 @@ if (!empty($_POST)) {
     <body>
         <div id="wrapper">
             <?php
-            echo $form->render($factory);
+            echo $form->render($renderer);
 
             if (!empty($_POST)) {
                 echo '<pre>';

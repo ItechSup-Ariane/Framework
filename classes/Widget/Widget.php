@@ -24,15 +24,15 @@ abstract class Widget
     /**
      * Override this in your custom implementation of the widget base class.
      */
-    public function render($factory = null)
+    public function render($renderer = null)
     {
-        if ($factory == null) {
+        if ($renderer == null) {
             $return = $this->renderLabel();
             $return .= $this->renderWidget();
             $return .= $this->renderError();
             return $return;
         }
-        return $factory->renderCompleteWidget($this);
+        return $renderer->renderCompleteWidget($this);
     }
 
     abstract public function renderWidget();

@@ -1,8 +1,8 @@
 <?php
 
-namespace Itechsup\FormFwk\Factory;
+namespace Itechsup\FormFwk\Renderer;
 
-use Itechsup\FormFwk\Factory\Factory;
+use Itechsup\FormFwk\Renderer\Renderer;
 
 
 /**
@@ -10,7 +10,7 @@ use Itechsup\FormFwk\Factory\Factory;
  *
  * @author Maxime
  */
-class ListFactory extends Factory
+class ListRenderer extends Renderer
 {
 
     public function renderFormStart()
@@ -28,7 +28,13 @@ class ListFactory extends Factory
     {
         return '</ul><input type="submit" value="Soumet moi !" /></form>';
     }
-
+    
+    /**
+     * Render of the complete widget, with label, widget and error message
+     * 
+     * @param Widget $widget
+     * @return string
+     */
     public function renderCompleteWidget($widget)
     {
         $return = '<li>'.$widget->renderLabel();

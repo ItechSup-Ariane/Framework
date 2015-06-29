@@ -22,13 +22,13 @@ class Form
      *
      * @return string a nice html string
      */
-    public function render($factory)
+    public function render($renderer)
     {
-        $output = $factory->renderFormStart();
+        $output = $renderer->renderFormStart();
         foreach ($this->schema->getWidgets() as $widget) {
-            $output .= $widget->render($factory);
+            $output .= $widget->render($renderer);
         }
-        $output .= $factory->renderFormEnd();
+        $output .= $renderer->renderFormEnd();
 
         return $output;
     }

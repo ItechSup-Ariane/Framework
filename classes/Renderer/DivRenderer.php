@@ -1,15 +1,15 @@
 <?php
 
-namespace Itechsup\FormFwk\Factory;
+namespace Itechsup\FormFwk\Renderer;
 
-use Itechsup\FormFwk\Factory\Factory;
+use Itechsup\FormFwk\Renderer\Renderer;
 
 /**
  * Factory for render a form with multiple div format
  *
  * @author Maxime
  */
-class DivFactory extends Factory
+class DivRenderer extends Renderer
 {
 
     public function renderFormStart()
@@ -27,6 +27,12 @@ class DivFactory extends Factory
         return '<input type="submit" value="Soumet moi !" /></form>';
     }
 
+    /**
+     * Render of the complete widget, with label, widget and error message
+     * 
+     * @param Widget $widget
+     * @return string
+     */
     public function renderCompleteWidget($widget)
     {
         $return = '<div name='.$widget->getName().'>'.$widget->renderLabel();
