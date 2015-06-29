@@ -49,7 +49,7 @@ class Form
      *
      * @return string
      */
-    private function renderFormStart()
+    public function renderFormStart()
     {
         return '<form method="POST" action="">';
     }
@@ -59,7 +59,7 @@ class Form
      *
      * @return string
      */
-    private function renderFormEnd()
+    public function renderFormEnd()
     {
         return '<input type="submit" value="Soumet moi !" /></form>';
     }
@@ -77,6 +77,11 @@ class Form
     public function isValid()
     {
         return $this->schema->isValid();
+    }
+
+    public function getSchema()
+    {
+        return $this->schema;
     }
 
 }
