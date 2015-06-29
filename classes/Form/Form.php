@@ -3,6 +3,7 @@
 namespace Itechsup\FormFwk\Form;
 
 use Itechsup\FormFwk\Form\ValidatorSchema;
+use Itechsup\FormFwk\Factory\IRenderer;
 
 /**
  * This nice class offers an OO interface for an HTML Form. Enjoy!
@@ -21,78 +22,31 @@ class Form
      *
      * @return string a nice html string
      */
-    public function render($options = [])
+    public function render(IRenderer $renderer)
     {   
-        $view = isset($options['view']) ? $options['view'] : '';
-    
-        $output = $this->renderFormStart();        
-        $output .= $this->renderContent($view);        
+        
+        $output .= $this->renderFormStart();        
+        $output .= $this->renderContent($renderer);        
         $output .= $this->renderFormEnd();
 
         return $output;
     }
     
-    public function renderContent($view)
+    public function renderContent($renderer)
     {        
-        $output = $this->renderContentStart($view);
+        $output = $renderer->renderContentStart();
         
         foreach ($this->schema->getWidgets() as $widget) {
             
-            $output .= $this->renderContentWidgetStart($view);
+            $output .= $renderer->renderContentWidgetStart();
             $output .= $widget->render();            
-            $output .= $this->renderContentWidgetEnd($view);
+            $output .= $renderer->renderContentWidgetEnd();
         }
         
-        $output .= $this->renderContentEnd($view);
+        $output .= $renderer->renderContentEnd();
         
         return $output;
     }
-    
-    public function renderContentStart($view)
-    {       
-        $output = '';
-        if ($view == 'table'){
-            $output = '<table>';
-        } else if ($view == 'list'){
-            $output = '<ul>';
-        }
-        return $output;
-    }
-    public function renderContentEnd($view)
-    {
-        $output = '';
-        if ($view == 'table'){
-            $output = '</table>';
-        } else if ($view == 'list'){
-            $output = '</ul>';
-        }
-        return $output;
-    }
-    public function renderContentWidgetStart($view)
-    {
-        $output = '';
-        if ($view == 'table'){
-                $output = '<tr><td>';
-        } else if ($view == 'div'){
-            $output = '<div style="background-color : red">';
-        } else if ($view == 'list'){
-            $output = '<li>';
-        }
-        return $output;
-    }
-    public function renderContentWidgetEnd($view)
-    {
-        $output = '';            
-        if ($view == 'table'){
-            $output = '</td></tr>';
-        } else if ($view == 'div'){
-            $output = '</div>';
-        } else if ($view == 'list'){
-            $output = '</li>';
-        }        
-        return $output;
-    }
-    
     
     /**
      * Binds user data to the form.

@@ -65,7 +65,9 @@ if (!empty($_POST)) {
             <?php 
             
                 // On affiche le formulaire
-                $renderOptions = ['view'=>'table']; // options dispos : table, list, div 
+                // $renderOptions = new Itechsup\FormFwk\Factory\TableRenderer();
+                $renderOptions = new Itechsup\FormFwk\Factory\DivRenderer();
+                // $renderOptions = new Itechsup\FormFwk\Factory\ListRenderer();
                 echo $form->render($renderOptions); 
             
                 // Si des données ont été envoyées, on les affiche
