@@ -9,20 +9,68 @@
 namespace Itechsup\FormFwk\Form\Renderer;
 use Itechsup\FormFwk\Form\Form;
 
+/**
+ * Class FormRenderer
+ *
+ * @package Itechsup\FormFwk\Form\Renderer
+ */
 abstract class FormRenderer {
 
+    /**
+     * @var \Itechsup\FormFwk\Form\Form
+     * The form to render
+     */
     private $form;
 
+    /**
+     * Constructor of FormRenderer
+     *
+     * @param \Itechsup\FormFwk\Form\Form $form
+     *  The form to render
+     */
     public function __construct(Form $form)
     {
         $this->form = $form;
     }
 
+    /**
+     * Abstract method to start the HTML of the form's wrapper.
+     *
+     * @return string
+     *  The HTML starting the form wrapper
+     */
     abstract protected function renderFormWrapperStart();
+
+    /**
+     * Abstract method to end the HTML of the form's wrapper.
+     *
+     * @return string
+     *  The HTML ending the form wrapper
+     */
     abstract protected function renderFormWrapperEnd();
+
+    /**
+     * Abstract method to start the HTML of a form's widget wrapper.
+     *
+     * @return string
+     *  The HTML starting the widget wrapper
+     */
     abstract protected function renderWidgetWrapperStart();
+
+    /**
+     * Abstract method to end the HTML of a form's widget wrapper.
+     *
+     * @return string
+     *  The HTML ending the widget wrapper
+     */
     abstract protected function renderWidgetWrapperEnd();
 
+    /**
+     * Render the form, wrapped depending on the implementation.
+     *
+     * @return string
+     *  The HTML of the form (wrapped as we wanted).
+     */
     public function renderForm()
     {
         $output = $this->renderFormWrapperStart();
