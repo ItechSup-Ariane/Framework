@@ -18,6 +18,8 @@ namespace Itechsup\FormFwk\Renderer;
 abstract class FormRenderer
 {
 
+    protected $htmlAttributes = array();
+
     /**
      * Abstract method to start the HTML of the start of the form's wrapper.
      *
@@ -99,6 +101,10 @@ abstract class FormRenderer
      */
     abstract protected function renderWidgetErrorsWrapperEnd();
 
+    public function __construct($htmlAttributes = array())
+    {
+        $this->htmlAttributes = $htmlAttributes;
+    }
     /**
      * Render the HTML wrapping the form start.
      *

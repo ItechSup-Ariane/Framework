@@ -33,6 +33,6 @@ class FormRendererFactory
             throw new \InvalidArgumentException('The form renderer for the layout ' . $layout . ' was not implemented.');
             return null;
         }
-        return new $renderersMap[$layout]();
+        return new $renderersMap[$layout]($htmlAttributes);
     }
 }

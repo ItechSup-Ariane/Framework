@@ -32,6 +32,23 @@ $form->addWidget($WMultiple);
 
 $form->addGroupWidget([$WSelectSimple, $WSimpleExpanded], new \Itechsup\FormFwk\Validator\ValidatorYouShouldNotPass() );
 
+$attributes = [
+    'formStart' => [
+        'classes' => ['bla', 'blo', 'bli'],
+        'id' => 'blablobli',
+    ],
+    'label' => [
+        'classes' => ['label', 'laboul', 'larbin'],
+        'data-foo' => 'lablablabla',
+    ],
+    'widget' => [
+        'classes' => ['widget', 'widget-%type%'],
+    ],
+    'errors' => [
+        'classes' => ['form-error', 'widget-%type%-error'],
+    ],
+];
+$htmlAttributes = new \Itechsup\FormFwk\Form\FormHTMLAttributes($attributes);
 
 if (!empty($_POST)) {
     $form->bind($_POST);
@@ -47,7 +64,7 @@ if (!empty($_POST)) {
     <body>
         <div id="wrapper">
             <?php 
-                echo $form->render('list');
+                echo $form->render('table', $widgetAttributes);
             
                 if (!empty($_POST)) {
                     echo '<pre>';

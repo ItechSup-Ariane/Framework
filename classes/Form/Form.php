@@ -27,13 +27,14 @@ class Form
      *
      * @return string a nice html string
      */
-    public function render($layout)
+    public function render($layout, $htmlAttributes = null)
     {
         try {
             $renderer = RendererFactory::getRenderer($layout);
         } catch (\InvalidArgumentException $e) {
             return $e->getMessage();
         }
+        $renderer->setHtmlAttributes($htmlAttributes);
 
         $output = $renderer->renderFormStart($this->renderFormStart());
         foreach ($this->schema->getWidgets() as $widget) {

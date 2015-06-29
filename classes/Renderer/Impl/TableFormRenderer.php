@@ -20,7 +20,7 @@ class TableFormRenderer extends FormRenderer
      */
     protected function renderFormStartWrapperStart()
     {
-        return '<table>';
+        return '<table width="100%">';
     }
 
     /**
