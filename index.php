@@ -20,6 +20,20 @@ spl_autoload_register(function ($class) {
 
 $form = new Itechsup\FormFwk\Form\Form();
 $options = ['les lettres' => ['a' => 'Ma lettre A', 'b' => 'Ma lettre B', 'c' => 'Ma lettre C'], '001' => 'tutu is so plop'];
+<<<<<<< HEAD
+=======
+$WSelectSimple = new Itechsup\FormFwk\Widget\Choice\Impl\WidgetSelectSimple('s', 'label1', [], $options);
+$WSimpleExpanded = new Itechsup\FormFwk\Widget\Choice\Impl\WidgetSimpleExpanded('se', 'label2', [], $options);
+$WMultipleExpanded = new Itechsup\FormFwk\Widget\Choice\Impl\WidgetMultipleExpanded('me', 'label3', [], $options);
+$WMultiple = new Itechsup\FormFwk\Widget\Choice\Impl\WidgetMultiple('m', 'label4', [], $options);
+
+$form->addWidget($WSelectSimple,[new \Itechsup\FormFwk\Validator\ValidatorYouShouldNotPass()]);
+$form->addWidget($WSimpleExpanded);
+$form->addWidget($WMultipleExpanded);
+$form->addWidget($WMultiple);
+
+$form->addGroupWidget([$WSelectSimple, $WSimpleExpanded], new \Itechsup\FormFwk\Validator\ValidatorYouShouldNotPass() );
+>>>>>>> origin/master
 
 // $form->addWidget(new Itechsup\FormFwk\Widget\Choice\Impl\WidgetSelectSimple('s', 'label1', [], $options), [new \Itechsup\FormFwk\Validator\ValidatorYouShouldNotPass()]);
 $form->addWidget(new Itechsup\FormFwk\Widget\Choice\Impl\WidgetSelectSimple('s', 'label1', [], $options));
