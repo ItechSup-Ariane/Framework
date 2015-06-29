@@ -22,13 +22,13 @@ class Form
      *
      * @return string a nice html string
      */
-    public function render()
+    public function render($format)
     {
-        $output = $this->renderFormStart();
+        $output = $this->renderFormStart($format);
         foreach ($this->schema->getWidgets() as $widget) {
-            $output .= $widget->render();
+            $output .= $widget->render($format);
         }
-        $output .= $this->renderFormEnd();
+        $output .= $this->renderFormEnd($format);
 
         return $output;
     }
@@ -49,9 +49,16 @@ class Form
      *
      * @return string
      */
-    private function renderFormStart()
+    private function renderFormStart($format)
     {
-        return '<form method="POST" action="">';
+        switch ($format){
+            case 'table':
+                return '<form method="POST" action=""><table>';
+            case 'list':
+                return '<form method="POST" action=""><ul>';
+            default:
+                return '<form method="POST" action="">';
+        }
     }
 
     /**
@@ -59,9 +66,16 @@ class Form
      *
      * @return string
      */
-    private function renderFormEnd()
+    private function renderFormEnd($format)
     {
-        return '<input type="submit" value="Soumet moi !" /></form>';
+        switch ($format){
+            case 'table':
+                return '</table><input type="submit" value="Soumet moi !" /></form>';
+            case 'list':
+                return '</ul><input type="submit" value="Soumet moi !" /></form>';
+            default:
+                return '<input type="submit" value="Soumet moi !" /></form>';
+        }
     }
 
     public function addWidget($widget, array $validators = [])

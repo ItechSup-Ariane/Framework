@@ -22,13 +22,33 @@ abstract class Widget
     }
 
     /**
-     * Ovveride this in your custom implementation of the widget base class.
+     * Override this in your custom implementation of the widget base class.
      */
-    public function render()
+    public function render($format=null)
     {
-        $return = $this->renderLabel();
-        $return .= $this->renderWidget();
-        $return .= $this->renderError();
+        switch ($format) {
+            case 'table':
+                $return = '<tr><td>'.$this->renderLabel().'</td>';
+                $return .= '<td>'.$this->renderWidget().'</td>';
+                $return .= '<td>'.$this->renderError().'</td></tr>';
+                break;
+            case 'list':
+                $return = '<li>'.$this->renderLabel();
+                $return .= $this->renderWidget();
+                $return .= $this->renderError().'</li>';
+                break;
+            case 'div' :
+                $return = '<div name='.$this->getName().'>'.$this->renderLabel();
+                $return .= $this->renderWidget();
+                $return .= $this->renderError().'</div>';
+                break;
+            default:
+                $return = $this->renderLabel();
+                $return .= $this->renderWidget();
+                $return .= $this->renderError();
+                break;
+        }
+
         return $return;
     }
 
@@ -36,9 +56,7 @@ abstract class Widget
 
     public function renderError()
     {
-        var_dump($this->errors);
-        $return= '<span class="warning">'.implode(' ', $this->errors).'</span>';
-        var_dump($return);
+        $return = '<span class="warning">'.implode(' ', $this->errors).'</span>';
         return $return;
     }
 
