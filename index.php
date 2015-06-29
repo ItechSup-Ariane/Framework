@@ -3,14 +3,14 @@ spl_autoload_register(function ($class) {
 
     $prefix = 'Itechsup\\FormFwk';
 
-    $base_dir = __DIR__ . DIRECTORY_SEPARATOR . 'classes';
+    $base_dir = __DIR__.DIRECTORY_SEPARATOR.'classes';
 
     $len = strlen($prefix);
     if (strncmp($prefix, $class, $len) !== 0) {
         return;
     }
     $relative_class = substr($class, $len);
-    $file = $base_dir . str_replace('\\', DIRECTORY_SEPARATOR, $relative_class) . '.php';
+    $file = $base_dir.str_replace('\\', DIRECTORY_SEPARATOR, $relative_class).'.php';
 
     // if the file exists, require it
     if (file_exists($file)) {
@@ -28,7 +28,7 @@ $WSimpleExpanded = new Itechsup\FormFwk\Widget\Choice\Impl\WidgetSimpleExpanded(
 $WMultipleExpanded = new Itechsup\FormFwk\Widget\Choice\Impl\WidgetMultipleExpanded('me', 'label3', [], $options);
 $WMultiple = new Itechsup\FormFwk\Widget\Choice\Impl\WidgetMultiple('m', 'label4', [], $options);
 
-$form->addWidget($WSelectSimple,[new \Itechsup\FormFwk\Validator\ValidatorYouShouldNotPass()]);
+$form->addWidget($WSelectSimple, [new \Itechsup\FormFwk\Validator\ValidatorYouShouldNotPass()]);
 $form->addWidget($WSimpleExpanded);
 $form->addWidget($WMultipleExpanded);
 $form->addWidget($WMultiple);
@@ -37,8 +37,14 @@ $form->addWidget($WText1);
 $form->addWidget($WText2);
 $form->addWidget($WText3);
 
-$form->addGroupWidget([$WText1, $WText2, $WText3], new \Itechsup\FormFwk\Validator\ValidatorGroupWidget\ValidatorTextEqual("c'est pas egal", [$WText1, $WText2, $WText3]) );
-$form->addGroupWidget([$WSelectSimple, $WSimpleExpanded], new \Itechsup\FormFwk\Validator\ValidatorYouShouldNotPass() );
+$form->addGroupWidget([$WText1, $WText2, $WText3], new \Itechsup\FormFwk\Validator\ValidatorGroupWidget\ValidatorTextEqual("c'est pas egal", [$WText1, $WText2, $WText3]));
+$form->addGroupWidget([$WSelectSimple, $WSimpleExpanded], new \Itechsup\FormFwk\Validator\ValidatorYouShouldNotPass());
+
+
+
+$htmlAttributes['name'] = 'test';
+$factory = new ItechSup\FormFwk\Factory\TableFactory($htmlAttributes);
+
 
 
 if (!empty($_POST)) {
@@ -54,16 +60,16 @@ if (!empty($_POST)) {
     </head>
     <body>
         <div id="wrapper">
-            <?php 
-                echo $form->render('table'); 
-            
-                if (!empty($_POST)) {
-                    echo '<pre>';
-                    print_r($_POST);
-                    echo '</pre>';
-                }
+            <?php
+            echo $form->render($factory);
+
+            if (!empty($_POST)) {
+                echo '<pre>';
+                print_r($_POST);
+                echo '</pre>';
+            }
             ?>
         </div>
-	</body>
+    </body>
 </html>
 

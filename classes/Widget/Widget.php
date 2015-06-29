@@ -24,39 +24,16 @@ abstract class Widget
     /**
      * Override this in your custom implementation of the widget base class.
      */
-    public function render($format=null)
+    public function render(Factory $factory)
     {
-        switch ($format) {
-            case 'table':
-                $return = '<tr><td>'.$this->renderLabel().'</td>';
-                $return .= '<td>'.$this->renderWidget().'</td>';
-                $return .= '<td>'.$this->renderError().'</td></tr>';
-                break;
-            case 'list':
-                $return = '<li>'.$this->renderLabel();
-                $return .= $this->renderWidget();
-                $return .= $this->renderError().'</li>';
-                break;
-            case 'div' :
-                $return = '<div name='.$this->getName().'>'.$this->renderLabel();
-                $return .= $this->renderWidget();
-                $return .= $this->renderError().'</div>';
-                break;
-            default:
-                $return = $this->renderLabel();
-                $return .= $this->renderWidget();
-                $return .= $this->renderError();
-                break;
-        }
-
-        return $return;
+        return $factory->renderCompleteWidget($this);
     }
 
     abstract public function renderWidget();
 
     public function renderError()
     {
-        $return= '<span class="warning">'.implode(' ', $this->errors).'</span>';
+        $return = '<span class="warning">'.implode(' ', $this->errors).'</span>';
         return $return;
     }
 
@@ -125,8 +102,9 @@ abstract class Widget
     {
         return $this->name;
     }
-    
-     public function getData() {
+
+    public function getData()
+    {
         return $this->data;
     }
 
@@ -134,9 +112,10 @@ abstract class Widget
     {
         $this->errors = array_merge($this->errors, $errors);
     }
-    
+
     public function setErrors($errors)
     {
         $this->errors = $errors;
     }
+
 }
