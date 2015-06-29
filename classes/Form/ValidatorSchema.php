@@ -1,9 +1,6 @@
 <?php
-
 namespace Itechsup\FormFwk\Form;
-
 use Itechsup\FormFwk\Exception\ValidatorException;
-
 /**
  * Description of Schema
  *
@@ -11,7 +8,6 @@ use Itechsup\FormFwk\Exception\ValidatorException;
  */
 class ValidatorSchema
 {
-
     /**
      * Widget holder
      */
@@ -22,7 +18,7 @@ class ValidatorSchema
     private $hasError = false;
     private $errors = [];
     private $data = null;
-
+    
     public function addWidget($widget, array $validators = [])
     {
         $this->widgets[$widget->getName()] = $widget;
@@ -46,17 +42,18 @@ class ValidatorSchema
     {
         return $this->widgets;
     }
-
     public function bind($data = [])
     {
         $this->data = $data;
         foreach ($this->getWidgets() as $name => $widget) {
-            $widget->bind($this->data[$name]);
+            if (!empty($this->data[$name])) {
+                $widget->bind($this->data[$name]);
+            }
+            // $widget->bind($this->data[$name]);
         }
         $this->validate();
         $this->validateGroup();
     }
-
     private function validate()
     {
         foreach ($this->validators as $widgetName => $validators) {
@@ -88,11 +85,9 @@ class ValidatorSchema
             }
         }
     }
-    
 
     public function isValid()
     {
         return $this->data !== null && $this->hasError == true;
     }
-
 }
