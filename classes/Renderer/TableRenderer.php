@@ -7,7 +7,7 @@ class TableRenderer implements IRenderer
     
     public function renderContentStart()
     {       
-        $output = '<table border="1" style="width : 100%">';
+        $output = '<table class="renderer">';
         return $output;
     }
     public function renderContentEnd()

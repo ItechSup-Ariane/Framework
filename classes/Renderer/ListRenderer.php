@@ -6,7 +6,7 @@ class ListRenderer implements IRenderer
 {    
     public function renderContentStart()
     {       
-        $output = '<ul>';
+        $output = '<ul class="renderer">';
         return $output;
     }
     public function renderContentEnd()

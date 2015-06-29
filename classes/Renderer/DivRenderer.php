@@ -17,7 +17,7 @@ class DivRenderer implements IRenderer
     }
     public function renderContentWidgetStart()
     {
-        $output = '<div>';
+        $output = '<div class="renderer">';
         return $output;
     }
     public function renderContentWidgetEnd()
