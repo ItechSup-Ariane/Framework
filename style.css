@@ -64,3 +64,7 @@ input[type="reset"]{
     display : block;
     color : red;
 }
+
+tr,td{
+    border: 3px solid white;
+}

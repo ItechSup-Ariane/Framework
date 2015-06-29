@@ -41,12 +41,17 @@ $form->addGroupWidget([$WText1, $WText2, $WText3], new \Itechsup\FormFwk\Validat
 $form->addGroupWidget([$WSelectSimple, $WSimpleExpanded], new \Itechsup\FormFwk\Validator\ValidatorYouShouldNotPass());
 
 $htmlAttributes['name'] = 'test';
-$renderer = new Itechsup\FormFwk\Renderer\ListRenderer($htmlAttributes);
+$renderer1 = new Itechsup\FormFwk\Renderer\DivRenderer($htmlAttributes);
+
+$htmlAttributes['name'] = 'test';
+$htmlAttributes['style'] = 'border:3px solid yellow; width:30em;';
+$renderer = new Itechsup\FormFwk\Renderer\TableRenderer($htmlAttributes);
 
 if (!empty($_POST)) {
     $form->bind($_POST);
 }
 ?>
+
 <html>
     <head>
         <meta charset="UTF-8">
@@ -58,7 +63,8 @@ if (!empty($_POST)) {
         <div id="wrapper">
             <?php
             echo $form->render($renderer);
-
+            echo $form->render($renderer1);
+            
             if (!empty($_POST)) {
                 echo '<pre>';
                 print_r($_POST);

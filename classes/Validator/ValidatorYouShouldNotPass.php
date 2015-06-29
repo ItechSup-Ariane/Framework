@@ -11,11 +11,15 @@ use Itechsup\FormFwk\Exception\ValidatorException;
  */
 class ValidatorYouShouldNotPass
 {
-    public function validate(){
+
+    public function validate()
+    {
         throw new ValidatorException();
     }
-    
-    public function getMessage(){
+
+    public function getMessage()
+    {
         return 'pouet';
     }
+
 }

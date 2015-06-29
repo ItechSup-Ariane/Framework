@@ -21,8 +21,6 @@ class WidgetMultiple extends AbstractWidgetSelect
         $this->htmlAttributes['multiple'] = "multiple";
 
         return parent::renderWidget();
-        
-        
     }
 
 }

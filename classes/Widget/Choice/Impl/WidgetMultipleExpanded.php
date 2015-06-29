@@ -6,7 +6,7 @@ use Itechsup\FormFwk\Widget\Choice\AbstractWidgetChoiceExpanded;
 use Itechsup\FormFwk\Widget\WidgetImpl\WidgetCheckbox;
 
 class WidgetMultipleExpanded extends AbstractWidgetChoiceExpanded
-{	
+{
 
     protected function renderOptions($value, $label)
     {
@@ -15,7 +15,7 @@ class WidgetMultipleExpanded extends AbstractWidgetChoiceExpanded
 
         $arrayAttributes = ['id' => $this->getId().'_'.$value, 'value' => $value];
 
-        if($this->isOptionSelected($value)){
+        if ($this->isOptionSelected($value)) {
             $arrayAttributes['checked'] = "";
         }
 

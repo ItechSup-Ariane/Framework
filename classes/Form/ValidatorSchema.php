@@ -28,14 +28,14 @@ class ValidatorSchema
         $this->widgets[$widget->getName()] = $widget;
         $this->validators[$widget->getName()] = $validators;
     }
-    
+
     public function addGroupWidget(array $widgets = [], $validator)
     {
         $newKey = $this->createKeys();
         $this->widgetMultiple[$newKey] = $widgets;
         $this->validatorsMultiple[$newKey] = $validator;
     }
-    
+
     private function createKeys()
     {
         $keys = array_keys($this->widgetMultiple);
@@ -75,7 +75,7 @@ class ValidatorSchema
             $this->hasError = $this->hasError || !empty($errorMsg);
         }
     }
-    
+
     private function validateGroup()
     {
         foreach ($this->validatorsMultiple as $key => $validator) {
@@ -91,7 +91,6 @@ class ValidatorSchema
             }
         }
     }
-    
 
     public function isValid()
     {

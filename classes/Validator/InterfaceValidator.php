@@ -15,7 +15,6 @@ namespace Itechsup\FormFwk\Validator;
  */
 interface InterfaceValidator
 {
-        
+
     public function validate($value);
-    
 }

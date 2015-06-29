@@ -2,8 +2,7 @@
 
 namespace Itechsup\FormFwk\Renderer;
 
-use Itechsup\FormFwk\Factory\Renderer;
-
+use Itechsup\FormFwk\Renderer\Renderer;
 
 /**
  * Factory for render a form with a table format
@@ -12,7 +11,8 @@ use Itechsup\FormFwk\Factory\Renderer;
  */
 class TableRenderer extends Renderer
 {
-     /**
+
+    /**
      * Renders start tag for a form and start tag for a table
      *
      * @return string

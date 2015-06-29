@@ -17,7 +17,7 @@ use Itechsup\FormFwk\Exception\ValidatorException;
  */
 class ValidatorNumericInteger extends AbstractValidator implements InterfaceValidator
 {
-    
+
     public function validate($value)
     {
         if (!is_numeric($value) || !is_int($value)) {

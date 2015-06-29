@@ -13,7 +13,9 @@ use Itechsup\FormFwk\Exception\ValidatorException;
  */
 class ValidatorTextEqual extends AbstractValidator implements InterfaceValidator
 {
+
     private $widgets = [];
+
     function __construct($message, array $groupWidget)
     {
         parent::__construct($message);
@@ -23,16 +25,14 @@ class ValidatorTextEqual extends AbstractValidator implements InterfaceValidator
     public function validate($value)
     {
         $value = null;
-        foreach($this->widgets as $w)
-        {
-            if($value==null) {
-                $value = $w->getData();       
+        foreach ($this->widgets as $w) {
+            if ($value == null) {
+                $value = $w->getData();
             } else {
                 if ($value != $w->getData()) {
                     throw new ValidatorException($this->getMessage());
                 }
-            }   
-        
+            }
         }
     }
 

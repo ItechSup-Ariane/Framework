@@ -12,7 +12,6 @@ use Itechsup\FormFwk\Widget\Widget;
  */
 abstract class AbstractWidgetChoice extends Widget
 {
-	
 
     protected $options = [];
 
@@ -29,6 +28,7 @@ abstract class AbstractWidgetChoice extends Widget
         parent::__construct($name, $label, $htmlAttributes);
         $this->options = $options;
     }
+
     /**
      * For a given key we check if the value was binded to this instance. 
      * The key (returned through http request), not the value displayed to the end user.

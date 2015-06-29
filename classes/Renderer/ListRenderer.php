@@ -4,7 +4,6 @@ namespace Itechsup\FormFwk\Renderer;
 
 use Itechsup\FormFwk\Renderer\Renderer;
 
-
 /**
  * Factory for render a form with a list format
  *
@@ -12,6 +11,7 @@ use Itechsup\FormFwk\Renderer\Renderer;
  */
 class ListRenderer extends Renderer
 {
+
     /**
      * Renders start tag for a form and start tag for a ul list
      *
@@ -20,7 +20,6 @@ class ListRenderer extends Renderer
     public function renderFormStart()
     {
         return '<form method="POST" action=""><ul'.$this->renderHtmlAttributes().'>';
-        
     }
 
     /**
@@ -32,7 +31,7 @@ class ListRenderer extends Renderer
     {
         return '</ul><input type="submit" value="Soumet moi !" /></form>';
     }
-    
+
     /**
      * Render of the complete widget, with label, widget and error message
      * Render for a ul/li format
