@@ -12,6 +12,11 @@ use Itechsup\FormFwk\Renderer\Renderer;
 class DivRenderer extends Renderer
 {
 
+    /**
+     * Renders start tag for a form
+     *
+     * @return string
+     */
     public function renderFormStart()
     {
         return '<form method="POST" action="">';
@@ -29,6 +34,7 @@ class DivRenderer extends Renderer
 
     /**
      * Render of the complete widget, with label, widget and error message
+     * Render for a div format
      * 
      * @param Widget $widget
      * @return string

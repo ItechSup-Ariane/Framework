@@ -12,14 +12,18 @@ use Itechsup\FormFwk\Factory\Renderer;
  */
 class TableRenderer extends Renderer
 {
-
+     /**
+     * Renders start tag for a form and start tag for a table
+     *
+     * @return string
+     */
     public function renderFormStart()
     {
         return '<form method="POST" action=""><table'.$this->renderHtmlAttributes().'>';
     }
 
     /**
-     * Renders end tag for a form.
+     * Renders submit button, end tag for a form and a end tag for a table
      *
      * @return string
      */
@@ -30,6 +34,7 @@ class TableRenderer extends Renderer
 
     /**
      * Render of the complete widget, with label, widget and error message
+     * Render for a table format
      * 
      * @param Widget $widget
      * @return string

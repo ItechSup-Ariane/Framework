@@ -41,7 +41,7 @@ $form->addGroupWidget([$WText1, $WText2, $WText3], new \Itechsup\FormFwk\Validat
 $form->addGroupWidget([$WSelectSimple, $WSimpleExpanded], new \Itechsup\FormFwk\Validator\ValidatorYouShouldNotPass());
 
 $htmlAttributes['name'] = 'test';
-$renderer = new Itechsup\FormFwk\Renderer\DivRenderer($htmlAttributes);
+$renderer = new Itechsup\FormFwk\Renderer\ListRenderer($htmlAttributes);
 
 if (!empty($_POST)) {
     $form->bind($_POST);

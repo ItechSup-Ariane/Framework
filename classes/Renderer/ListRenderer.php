@@ -12,7 +12,11 @@ use Itechsup\FormFwk\Renderer\Renderer;
  */
 class ListRenderer extends Renderer
 {
-
+    /**
+     * Renders start tag for a form and start tag for a ul list
+     *
+     * @return string
+     */
     public function renderFormStart()
     {
         return '<form method="POST" action=""><ul'.$this->renderHtmlAttributes().'>';
@@ -20,7 +24,7 @@ class ListRenderer extends Renderer
     }
 
     /**
-     * Renders end tag for a form.
+     * Renders end tag for a form and end tag for a ul list
      *
      * @return string
      */
@@ -31,6 +35,7 @@ class ListRenderer extends Renderer
     
     /**
      * Render of the complete widget, with label, widget and error message
+     * Render for a ul/li format
      * 
      * @param Widget $widget
      * @return string
