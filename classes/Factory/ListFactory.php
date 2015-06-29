@@ -4,14 +4,9 @@ namespace Itechsup\FormFwk\Factory;
 
 use Itechsup\FormFwk\Factory\Factory;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /**
- * Description of renderFactory
+ * Factory for render a form with a list format
  *
  * @author Maxime
  */
@@ -39,6 +34,7 @@ class ListFactory extends Factory
         $return = '<li>'.$widget->renderLabel();
         $return .= $widget->renderWidget();
         $return .= $widget->renderError().'</li>';
+        return $return;
     }
 
 }

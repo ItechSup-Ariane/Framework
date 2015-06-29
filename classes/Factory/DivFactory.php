@@ -4,14 +4,8 @@ namespace Itechsup\FormFwk\Factory;
 
 use Itechsup\FormFwk\Factory\Factory;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
- * Description of DivFactory
+ * Factory for render a form with multiple div format
  *
  * @author Maxime
  */
@@ -38,6 +32,7 @@ class DivFactory extends Factory
         $return = '<div name='.$widget->getName().'>'.$widget->renderLabel();
         $return .= $widget->renderWidget();
         $return .= $widget->renderError().'</div>';
+        return $return;
     }
 
 }

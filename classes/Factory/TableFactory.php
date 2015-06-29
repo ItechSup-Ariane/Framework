@@ -4,14 +4,9 @@ namespace Itechsup\FormFwk\Factory;
 
 use Itechsup\FormFwk\Factory\Factory;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /**
- * Description of TableFactory
+ * Factory for render a form with a table format
  *
  * @author Maxime
  */
@@ -38,6 +33,7 @@ class TableFactory extends Factory
         $return = '<tr><td>'.$widget->renderLabel().'</td>';
         $return .= '<td>'.$widget->renderWidget().'</td>';
         $return .= '<td>'.$widget->renderError().'</td></tr>';
+        return $return;
     }
 
 }

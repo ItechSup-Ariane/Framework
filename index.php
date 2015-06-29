@@ -40,12 +40,8 @@ $form->addWidget($WText3);
 $form->addGroupWidget([$WText1, $WText2, $WText3], new \Itechsup\FormFwk\Validator\ValidatorGroupWidget\ValidatorTextEqual("c'est pas egal", [$WText1, $WText2, $WText3]));
 $form->addGroupWidget([$WSelectSimple, $WSimpleExpanded], new \Itechsup\FormFwk\Validator\ValidatorYouShouldNotPass());
 
-
-
 $htmlAttributes['name'] = 'test';
-$factory = new ItechSup\FormFwk\Factory\TableFactory($htmlAttributes);
-
-
+$factory = new Itechsup\FormFwk\Factory\TableFactory($htmlAttributes);
 
 if (!empty($_POST)) {
     $form->bind($_POST);

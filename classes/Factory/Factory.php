@@ -22,18 +22,17 @@ abstract class Factory
         $this->htmlAttributes = $htmlAttributes;
     }
 
-    abstract function renderCompleteWidget($widget);
+    abstract public function renderCompleteWidget($widget);
     
-    abstract function renderFormStart();
+    abstract public function renderFormStart();
     
-    abstract function renderFormEnd();
+    abstract public function renderFormEnd();
     
     protected function renderHtmlAttributes(){
         $output = '';
         foreach ($this->htmlAttributes as $key => $value) {
-            $output .= $key.'="'.$value.'" ';
+            $output .= ' '.$key.'="'.$value.'"';
         }
-
         return $output;
     }
 }

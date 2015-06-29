@@ -24,8 +24,14 @@ abstract class Widget
     /**
      * Override this in your custom implementation of the widget base class.
      */
-    public function render(Factory $factory)
+    public function render($factory = null)
     {
+        if ($factory == null) {
+            $return = $this->renderLabel();
+            $return .= $this->renderWidget();
+            $return .= $this->renderError();
+            return $return;
+        }
         return $factory->renderCompleteWidget($this);
     }
 
@@ -42,7 +48,7 @@ abstract class Widget
      *
      * @return string html representation of our widget's label
      */
-    protected function renderLabel()
+    public function renderLabel()
     {
         $label = '';
         if ($this->label !== null) {
