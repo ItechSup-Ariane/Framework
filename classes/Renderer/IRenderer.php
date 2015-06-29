@@ -1,6 +1,6 @@
 <?php
 
-namespace Itechsup\FormFwk\Factory;
+namespace Itechsup\FormFwk\Renderer;
 
 interface IRenderer
 {

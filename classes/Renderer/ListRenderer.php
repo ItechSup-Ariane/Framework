@@ -1,28 +1,27 @@
 <?php
 
-namespace Itechsup\FormFwk\Factory;
+namespace Itechsup\FormFwk\Renderer;
 
-class TableRenderer implements IRenderer
-{
-    
+class ListRenderer implements IRenderer
+{    
     public function renderContentStart()
     {       
-        $output = '<table border="1" style="width : 100%">';
+        $output = '<ul>';
         return $output;
     }
     public function renderContentEnd()
     {
-        $output = '</table>';
+        $output = '</ul>';
         return $output;
     }
     public function renderContentWidgetStart()
     {
-        $output = '<tr><td>';
+        $output = '<li>';
         return $output;
     }
     public function renderContentWidgetEnd()
     {
-        $output = '</td></tr>';
+        $output = '</li>';
         return $output;
     }
     

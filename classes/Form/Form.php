@@ -3,7 +3,7 @@
 namespace Itechsup\FormFwk\Form;
 
 use Itechsup\FormFwk\Form\ValidatorSchema;
-use Itechsup\FormFwk\Factory\IRenderer;
+use Itechsup\FormFwk\Renderer\IRenderer;
 
 /**
  * This nice class offers an OO interface for an HTML Form. Enjoy!

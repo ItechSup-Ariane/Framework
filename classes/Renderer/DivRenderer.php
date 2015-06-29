@@ -1,28 +1,29 @@
 <?php
 
-namespace Itechsup\FormFwk\Factory;
+namespace Itechsup\FormFwk\Renderer;
 
-class ListRenderer implements IRenderer
-{    
+class DivRenderer implements IRenderer
+{
+    
     public function renderContentStart()
     {       
-        $output = '<ul>';
+        $output = '';
         return $output;
     }
     public function renderContentEnd()
     {
-        $output = '</ul>';
+        $output = '';
         return $output;
     }
     public function renderContentWidgetStart()
     {
-        $output = '<li>';
+        $output = '<div>';
         return $output;
     }
     public function renderContentWidgetEnd()
     {
-        $output = '</li>';
+        $output = '</div>';
         return $output;
-    }
+    }    
     
 }
