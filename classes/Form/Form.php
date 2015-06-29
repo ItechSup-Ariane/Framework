@@ -9,7 +9,6 @@ use Itechsup\FormFwk\Form\ValidatorSchema;
  */
 class Form
 {
-
     private $schema;
 
     public function __construct()
@@ -22,17 +21,79 @@ class Form
      *
      * @return string a nice html string
      */
-    public function render()
-    {
-        $output = $this->renderFormStart();
-        foreach ($this->schema->getWidgets() as $widget) {
-            $output .= $widget->render();
-        }
+    public function render($options = [])
+    {   
+        $view = isset($options['view']) ? $options['view'] : '';
+    
+        $output = $this->renderFormStart();        
+        $output .= $this->renderContent($view);        
         $output .= $this->renderFormEnd();
 
         return $output;
     }
-
+    
+    public function renderContent($view)
+    {        
+        $output = $this->renderContentStart($view);
+        
+        foreach ($this->schema->getWidgets() as $widget) {
+            
+            $output .= $this->renderContentWidgetStart($view);
+            $output .= $widget->render();            
+            $output .= $this->renderContentWidgetEnd($view);
+        }
+        
+        $output .= $this->renderContentEnd($view);
+        
+        return $output;
+    }
+    
+    public function renderContentStart($view)
+    {       
+        $output = '';
+        if ($view == 'table'){
+            $output = '<table>';
+        } else if ($view == 'list'){
+            $output = '<ul>';
+        }
+        return $output;
+    }
+    public function renderContentEnd($view)
+    {
+        $output = '';
+        if ($view == 'table'){
+            $output = '</table>';
+        } else if ($view == 'list'){
+            $output = '</ul>';
+        }
+        return $output;
+    }
+    public function renderContentWidgetStart($view)
+    {
+        $output = '';
+        if ($view == 'table'){
+                $output = '<tr><td>';
+        } else if ($view == 'div'){
+            $output = '<div style="background-color : red">';
+        } else if ($view == 'list'){
+            $output = '<li>';
+        }
+        return $output;
+    }
+    public function renderContentWidgetEnd($view)
+    {
+        $output = '';            
+        if ($view == 'table'){
+            $output = '</td></tr>';
+        } else if ($view == 'div'){
+            $output = '</div>';
+        } else if ($view == 'list'){
+            $output = '</li>';
+        }        
+        return $output;
+    }
+    
+    
     /**
      * Binds user data to the form.
      *
@@ -67,6 +128,11 @@ class Form
     public function addWidget($widget, array $validators = [])
     {
         $this->schema->addWidget($widget, $validators);
+    }
+    
+    public function addGroupWidget(array $widgets = [], $validator)
+    {
+        $this->schema->addGroupWidget($widgets, $validator);
     }
 
     public function isValid()
