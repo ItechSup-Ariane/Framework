@@ -21,16 +21,10 @@ class Form {
      *
      * @return string a nice html string
      */
-    public function render(Render $render = null) {
+    public function render(Render $render) {
         $output = $this->renderFormStart();
-        if (empty($render)) {
-            foreach ($this->schema->getWidgets() as $widget) {
-                $output .= $widget->render();
-            }
-        } else {
-            $render->addListWidgets($this->schema->getWidgets());
-            $output .= $render->render();
-        }
+        $render->addListWidgets($this->schema->getWidgets());
+        $output .= $render->render();
         $output .= $this->renderFormEnd();
         return $output;
     }

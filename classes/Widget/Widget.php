@@ -41,7 +41,7 @@ abstract class Widget {
      *
      * @return string html representation of our widget's label
      */
-    protected function renderLabel() {
+    public function renderLabel() {
         $label = '';
         if ($this->label !== null) {
             $label = '<label for="' . $this->getId() . '">' . $this->label . '</label>';
