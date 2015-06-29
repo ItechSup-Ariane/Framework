@@ -13,6 +13,7 @@ abstract class Widget
     protected $data = null;
     protected $errors = [];
     protected $htmlAttributes = array();
+    public $typeRender;
 
     public function __construct($name, $label = null, $htmlAttributes = [])
     {
@@ -26,9 +27,16 @@ abstract class Widget
      */
     public function render()
     {
-        $return = $this->renderLabel();
+        $return = "";
+        if ($this->getTypeRender() != "") {
+            $return .= "<".$this->getTypeRender()." id=".$this->getId().">";
+        }
+        $return .= $this->renderLabel();
         $return .= $this->renderWidget();
         $return .= $this->renderError();
+        if ($this->getTypeRender() != "") {
+            $return .= "</".$this->getTypeRender().">";
+        }
         return $return;
     }
 
@@ -105,10 +113,20 @@ abstract class Widget
     {
         return $this->name;
     }
-
+    
+    
     public function setErrors($errors)
     {
         $this->errors = $errors;
     }
-
+    
+    public function getTypeRender()
+    {
+        return $this->typeRender;
+    }
+    
+    public function setTypeRender($typeRender)
+    {
+        $this->typeRender = $typeRender;
+    }
 }

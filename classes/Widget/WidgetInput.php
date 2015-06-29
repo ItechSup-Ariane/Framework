@@ -15,6 +15,7 @@ abstract class WidgetInput extends Widget
      */
     public function renderWidget()
     {
+        
         if ($this->data !== null) {
             $this->htmlAttributes['value'] = $this->data;
         }

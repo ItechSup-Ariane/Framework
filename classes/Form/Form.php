@@ -11,7 +11,7 @@ class Form
 {
 
     private $schema;
-
+    
     public function __construct()
     {
         $this->schema = new ValidatorSchema();
@@ -22,10 +22,11 @@ class Form
      *
      * @return string a nice html string
      */
-    public function render()
+    public function render($typeRender)
     {
         $output = $this->renderFormStart();
         foreach ($this->schema->getWidgets() as $widget) {
+            $widget->setTypeRender($typeRender);
             $output .= $widget->render();
         }
         $output .= $this->renderFormEnd();
@@ -78,5 +79,7 @@ class Form
     {
         return $this->schema->isValid();
     }
-
+    
+    
+    
 }

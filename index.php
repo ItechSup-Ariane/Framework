@@ -47,7 +47,7 @@ if (!empty($_POST)) {
     <body>
         <div id="wrapper">
             <?php 
-                echo $form->render(); 
+                echo $form->render("div"); 
             
                 if (!empty($_POST)) {
                     echo '<pre>';
