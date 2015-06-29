@@ -12,7 +12,7 @@ abstract class Widget
     protected $name = null;
     protected $data = null;
     protected $errors = [];
-    protected $htmlAttributes = array();
+    protected $htmlAttributes = [];
 
     public function __construct($name, $label = null, $htmlAttributes = [])
     {
