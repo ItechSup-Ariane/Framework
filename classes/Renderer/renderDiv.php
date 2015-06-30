@@ -2,19 +2,16 @@
 
 namespace Itechsup\FormFwk\Renderer;
 use \Itechsup\FormFwk\Widget\Widget;
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /**
  * Description of renderDiv
  *
  * @author silunga
+ * Format render with <div>'s tags
+ *
  */
 class renderDiv {
-    //put your code here
+    
     public function preRender()
     {
         $return = "<div>";

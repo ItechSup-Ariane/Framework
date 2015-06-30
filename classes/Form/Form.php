@@ -20,7 +20,7 @@ class Form
 
     /**
      * Output a nice HTML string for our beloved form.
-     *
+     * @param $renderer allow to choose html representation (<div>,<ul> or <table>)
      * @return string a nice html string
      */
     public function render($renderer)

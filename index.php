@@ -49,6 +49,7 @@ if (!empty($_POST)) {
     <body>
         <div id="wrapper">
             <?php 
+                //render creation (list,table or div format)
                 echo $form->render(new renderLi()); 
             
                 if (!empty($_POST)) {
