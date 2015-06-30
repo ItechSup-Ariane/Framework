@@ -47,7 +47,7 @@ if (!empty($_POST)) {
     <body>
         <div id="wrapper">
             <?php 
-                echo $form->render(); 
+                echo $form->render('tasgfswdble'); 
             
                 if (!empty($_POST)) {
                     echo '<pre>';
