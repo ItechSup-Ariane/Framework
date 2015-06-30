@@ -12,8 +12,8 @@ use \Itechsup\FormFwk\Widget\Widget;
  *
  */
 
-class renderTable {
-    //put your code here
+class renderTable 
+{
     public function preRender()
     {
         $return = "<table>";        

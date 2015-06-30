@@ -10,7 +10,8 @@ use \Itechsup\FormFwk\Widget\Widget;
  * Format render with <div>'s tags
  *
  */
-class renderDiv {
+class renderDiv 
+{
     
     public function preRender()
     {

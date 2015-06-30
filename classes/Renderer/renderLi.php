@@ -12,8 +12,8 @@ use \Itechsup\FormFwk\Widget\Widget;
  *
  */
 
-class renderLi {
-    //put your code here
+class renderLi 
+{
     public function preRender()
     {
         $return = "<ul>";        
