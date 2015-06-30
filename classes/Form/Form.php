@@ -3,6 +3,7 @@
 namespace Itechsup\FormFwk\Form;
 
 use Itechsup\FormFwk\Form\ValidatorSchema;
+use Itechsup\FormFwk\Renderer\renderDiv;
 
 /**
  * This nice class offers an OO interface for an HTML Form. Enjoy!
@@ -22,12 +23,15 @@ class Form
      *
      * @return string a nice html string
      */
-    public function render()
+    public function render($renderer)
     {
+        
         $output = $this->renderFormStart();
-        foreach ($this->schema->getWidgets() as $widget) {
-            $output .= $widget->render();
+        $output .= $renderer->preRender();
+        foreach ($this->schema->getWidgets() as $widget){
+            $output .= $renderer->render($widget);
         }
+        $output .= $renderer->postRender();
         $output .= $this->renderFormEnd();
 
         return $output;

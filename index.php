@@ -32,7 +32,9 @@ $form->addWidget($WMultiple);
 
 $form->addGroupWidget([$WSelectSimple, $WSimpleExpanded], new \Itechsup\FormFwk\Validator\ValidatorYouShouldNotPass() );
 
-
+use Itechsup\FormFwk\Renderer\renderTable;
+use Itechsup\FormFwk\Renderer\renderLi;
+use Itechsup\FormFwk\Renderer\renderDiv;
 if (!empty($_POST)) {
     $form->bind($_POST);
 }
@@ -47,7 +49,7 @@ if (!empty($_POST)) {
     <body>
         <div id="wrapper">
             <?php 
-                echo $form->render(); 
+                echo $form->render(new renderLi()); 
             
                 if (!empty($_POST)) {
                     echo '<pre>';
