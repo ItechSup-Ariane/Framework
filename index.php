@@ -21,7 +21,6 @@ spl_autoload_register(function ($class) {
     }
 });
 
-
 // On crée le formulaire               
 $form = new Itechsup\FormFwk\Form\Form();
 
